@@ -55,3 +55,9 @@ Team_num18
   - [ ] dfxtn
   - [ ] nand3b
 - [ ] Report Writing
+
+## FAQs
+
+1. I can't access
+  - Port 22 is blocked by IIT Bombay. So update the port in ssh using AI, or use personal hospot or you can use https.
+  - If still problem. Request project owner.
