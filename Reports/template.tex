@@ -1,0 +1,165 @@
+\documentclass[
+$if(fontsize)$
+  $fontsize$,
+$else$
+  11pt,
+$endif$
+$if(papersize)$
+  $papersize$paper,
+$else$
+  a4paper,
+$endif$
+$for(classoption)$
+  $classoption$$sep$,
+$endfor$
+]{$if(documentclass)$$documentclass$$else$article$endif$}
+
+% --- Core Typography & Encoding ---
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp}
+\else
+  \usepackage{fontspec}
+  \setmainfont{DejaVu Sans}
+\fi
+
+% --- Geometry & Margins ---
+\usepackage{geometry}
+\geometry{
+$if(geometry)$
+  $for(geometry)$$geometry$$sep$,$endfor$
+$else$
+  margin=1in
+$endif$
+}
+
+% --- Math Support & Section Numbering ---
+\usepackage{amsmath,amssymb,amsfonts}
+$if(number-by-section)$
+\numberwithin{equation}{section}
+\numberwithin{table}{section}
+\numberwithin{figure}{section}
+$endif$
+
+% --- Color Support ---
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+
+% --- Graphics & Images ---
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% --- Stable Table Configuration ---
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{caption}
+
+% Padding
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{10pt}
+
+% Table caption styling
+\captionsetup[table]{
+  font={small,bf},
+  textfont=normalfont,
+  justification=raggedright,
+  singlelinecheck=false,
+  skip=6pt
+}
+
+% --- Lists (Required by Pandoc) ---
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% --- Syntax Highlighting ---
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% --- Blockquote Styling ---
+\usepackage{mdframed}
+\definecolor{quote-border}{RGB}{180, 180, 180}
+\definecolor{quote-bg}{RGB}{248, 248, 248}
+\renewenvironment{quote}
+  {\begin{mdframed}[
+     topline=false, bottomline=false, rightline=false,
+     linewidth=3pt, linecolor=quote-border, backgroundcolor=quote-bg,
+     innertopmargin=6pt, innermargin=6pt,
+     innerleftmargin=10pt, innerrightmargin=10pt
+   ]\small\itshape}
+  {\end{mdframed}}
+
+% --- Links & Hyperref ---
+\usepackage{hyperref}
+\hypersetup{
+  breaklinks=true,
+  pdfcreator={Pandoc},
+$if(colorlinks)$
+  colorlinks=true,
+  linkcolor=$if(linkcolor)$$linkcolor$$else$NavyBlue$endif$,
+  filecolor=$if(filecolor)$$filecolor$$else$NavyBlue$endif$,
+  citecolor=$if(citecolor)$$citecolor$$else$NavyBlue$endif$,
+  urlcolor=$if(urlcolor)$$urlcolor$$else$NavyBlue$endif$,
+$else$
+  hidelinks,
+$endif$
+$if(title-meta)$
+  pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+  pdfauthor={$author-meta$},
+$endif$
+}
+
+% --- User Injected Preamble ---
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+% --- Title, Author, Date Metadata ---
+$if(title)$
+\title{$title$$if(subtitle)$\\[0.5em]\large $subtitle$$endif$}
+$endif$
+
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{$if(date)$$date$$else$\today$endif$}
+
+% --- Document Body ---
+\begin{document}
+
+$if(title)$
+\maketitle
+$endif$
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$if(toc)$
+\setcounter{tocdepth}{$if(toc-depth)$$toc-depth$$else$2$endif$}
+\tableofcontents
+\newpage
+$endif$
+
+$if(lof)$
+\listoffigures
+\newpage
+$endif$
+
+$if(lot)$
+\listoftables
+\newpage
+$endif$
+
+$body$
+
+\end{document}
