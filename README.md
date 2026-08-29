@@ -30,6 +30,23 @@ Team_num18
 - [ ] dfxtn:	Delay flop, single output Q, negedge clk
 - [ ] nand3b:	3-input NAND, first input inverted
 
+## Flow of working
+
+### 1. Create issue
+- Create new issue which is not present the repository. 
+- Add lables, Milestones, Relations, etc.
+- Assign this to yourself or any teammate.
+
+### 2. Create branch
+- Create banch in the devlopment section and pull it in local repo.
+- Switch to that branch and start working on it.
+
+## 3. Merge
+- Use `git push` on that banch.
+- After completing the isssue, goto pull request and create one.
+- You can delete parent branch or stay as it is.
+- Start working on next issue.
+
 ## Deliverables
 
 - [ ] Project Plan and assignment
