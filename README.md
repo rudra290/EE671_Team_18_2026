@@ -13,6 +13,7 @@ Team_num18
     ├── 📁 LIB
     ├── 📁 Verilog
     ├── 📁 Spice_Netlist
+    ├── 📁 Reports
     ├── Combinational_Lib.docx
     ├── Sequential_Lib.docx
     ├── Course_Project_1.pdf
