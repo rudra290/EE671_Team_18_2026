@@ -12,9 +12,9 @@ $endif$
 $for(classoption)$
   $classoption$$sep$,
 $endfor$
-]{$if(documentclass)$$documentclass$$else$article$endif$}
+]{$if(documentclass)$$documentclass$$else$report$endif$}
 
-% --- Core Typography & Encoding ---
+% --- Core Typography & Fonts ---
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -22,7 +22,15 @@ $endfor$
   \usepackage{textcomp}
 \else
   \usepackage{fontspec}
-  \setmainfont{DejaVu Sans}
+  $if(mainfont)$
+    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+  $endif$
+  $if(sansfont)$
+    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+  $endif$
+  $if(monofont)$
+    \setmonofont[$for(monofontoptions)$$monofontoptions$$sep$,$endfor$]{$monofont$}
+  $endif$
 \fi
 
 % --- Geometry & Margins ---
@@ -35,7 +43,7 @@ $else$
 $endif$
 }
 
-% --- Math Support & Section Numbering ---
+% --- Math Support & Numbering ---
 \usepackage{amsmath,amssymb,amsfonts}
 $if(number-by-section)$
 \numberwithin{equation}{section}
@@ -43,8 +51,24 @@ $if(number-by-section)$
 \numberwithin{figure}{section}
 $endif$
 
-% --- Color Support ---
-\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+% --- Color & Tables ---
+\usepackage[table,dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{caption}
+
+% Table styling
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{12pt}
+\captionsetup[table]{
+  font={small,bf},
+  textfont=normalfont,
+  justification=centering,
+  singlelinecheck=false,
+  skip=6pt
+}
 
 % --- Graphics & Images ---
 \usepackage{graphicx}
@@ -54,31 +78,10 @@ $endif$
 \makeatother
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
-% --- Stable Table Configuration ---
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{calc}
-\usepackage{caption}
-
-% Padding
-\renewcommand{\arraystretch}{1.35}
-\setlength{\tabcolsep}{10pt}
-
-% Table caption styling
-\captionsetup[table]{
-  font={small,bf},
-  textfont=normalfont,
-  justification=raggedright,
-  singlelinecheck=false,
-  skip=6pt
-}
-
-% --- Lists (Required by Pandoc) ---
+% --- Lists & Code Highlighting ---
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% --- Syntax Highlighting ---
 $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
@@ -91,7 +94,7 @@ $endif$
   {\begin{mdframed}[
      topline=false, bottomline=false, rightline=false,
      linewidth=3pt, linecolor=quote-border, backgroundcolor=quote-bg,
-     innertopmargin=6pt, innermargin=6pt,
+     innertopmargin=6pt, innerbottommargin=6pt,
      innerleftmargin=10pt, innerrightmargin=10pt
    ]\small\itshape}
   {\end{mdframed}}
@@ -110,12 +113,8 @@ $if(colorlinks)$
 $else$
   hidelinks,
 $endif$
-$if(title-meta)$
-  pdftitle={$title-meta$},
-$endif$
-$if(author-meta)$
-  pdfauthor={$author-meta$},
-$endif$
+  pdftitle={$if(title-meta)$$title-meta$$else$$title$$endif$},
+  pdfauthor={$if(author-meta)$$author-meta$$endif$}
 }
 
 % --- User Injected Preamble ---
@@ -123,25 +122,83 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-% --- Title, Author, Date Metadata ---
-$if(title)$
-\title{$title$$if(subtitle)$\\[0.5em]\large $subtitle$$endif$}
-$endif$
-
-\author{$for(author)$$author$$sep$ \and $endfor$}
-\date{$if(date)$$date$$else$\today$endif$}
-
-% --- Document Body ---
 \begin{document}
 
-$if(title)$
-\maketitle
-$endif$
+% ==========================================
+%           CUSTOM REPORT TITLE PAGE
+% ==========================================
+\begin{titlepage}
+  \centering
+  \vspace*{0.5cm}
 
+  $if(institute)$
+    {\scshape\LARGE\bfseries $institute$ \par}
+    \vspace{0.25cm}
+  $endif$
+
+  $if(institution)$
+    {\scshape\Large $institution$ \par}
+    \vspace{0.3cm}
+  $endif$
+
+  $if(department)$
+    {\scshape\large $department$ \par}
+    \vspace{0.3cm}
+  $endif$
+
+  $if(course)$
+    {\large\textbf{Course:} $course$$if(course-code)$ ($course-code$)$endif$ \par}
+  $endif$
+
+  \vspace{1.8cm}
+  \rule{\linewidth}{1.2pt}\\[0.4cm]
+  {\huge\bfseries $title$ \par}
+  $if(subtitle)$
+    \vspace{0.3cm}
+    {\Large\itshape $subtitle$ \par}
+  $endif$
+  \rule{\linewidth}{1.2pt}
+
+  \vspace{1.5cm}
+
+  $if(instructor)$
+    {\large\textbf{Instructor:} $instructor$ \par}
+    \vspace{0.6cm}
+  $endif$
+
+  $if(team-number)$
+    {\large\bfseries $team-number$ \par}
+    \vspace{0.4cm}
+  $endif$
+
+  $if(members)$
+    \begin{tabular}{ccc}
+      \toprule
+      \textbf{Roll Number} & \textbf{Full Name} & \textbf{Role / Contribution} \\
+      \midrule
+      $for(members)$
+      $members.roll$ & $members.name$ & $if(members.role)$$members.role$$else$Member$endif$ \\
+      $endfor$
+      \bottomrule
+    \end{tabular}
+    \par
+  $endif$
+
+  \vfill
+
+  % Automatic Compile Date
+  {\large\textbf{Date of Submission:} \today \par}
+  \vspace*{0.5cm}
+\end{titlepage}
+
+\setcounter{page}{1}
+
+% --- Front Matter (Abstract, TOC, LOF, LOT) ---
 $if(abstract)$
 \begin{abstract}
 $abstract$
 \end{abstract}
+\newpage
 $endif$
 
 $if(toc)$
@@ -160,6 +217,7 @@ $if(lot)$
 \newpage
 $endif$
 
+% --- Document Body ---
 $body$
 
 \end{document}
