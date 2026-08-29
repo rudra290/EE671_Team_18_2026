@@ -78,3 +78,8 @@ Team_num18
 1. I can't access
   - Port 22 is blocked by IIT Bombay. So update the port in ssh using AI, or use personal hospot or you can use https.
   - If still problem. Request project owner.
+
+2. Command for md to pdf
+```bash 
+pandoc temp.md --template=template.tex -o output.pdf --pdf-engine=lualatex --filter pandoc-crossref --lua-filter=inline.lua 
+```
