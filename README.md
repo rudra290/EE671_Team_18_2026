@@ -41,7 +41,7 @@ Team_num18
 - Create banch in the devlopment section and pull it in local repo.
 - Switch to that branch and start working on it.
 
-## 3. Merge
+### 3. Merge
 - Use `git push` on that banch.
 - After completing the isssue, goto pull request and create one.
 - You can delete parent branch or stay as it is.
