@@ -6,3 +6,8 @@
 5. Waveforms from one simulation (input, outputs and clocks clearly shown) – i.e., one waveform each for propagation delay, rise or fall transition time, set-up time, hold-time
 6. A completely filled Timing and Power tables (similar to the .doc files in the LIB folder).
 7. Table of contribution of each member of the team.
+
+### Command to make Report 
+```bash
+pandoc temp.md --template=template.tex -o output.pdf --pdf-engine=lualatex --filter pandoc-crossref --lua-filter=inline.lua 
+```
