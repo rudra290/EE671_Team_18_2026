@@ -39,7 +39,7 @@ V1  vin 0 PULSE(0 1.8 50ps 20ps 20ps 0.4ns 0.8ns)
 .control
   let wp_start = 0.42
   let wp_stop  = 1.60
-  let wp_step  = 0.02
+  let wp_step  = 0.01
   let curr_wp  = wp_start
 
   let n_steps  = (wp_stop - wp_start) / wp_step + 1
