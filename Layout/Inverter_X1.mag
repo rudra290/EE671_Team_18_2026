@@ -1,0 +1,132 @@
+magic
+tech sky130A
+timestamp 1788454489
+<< nwell >>
+rect -48 228 93 238
+rect -48 90 94 228
+rect -48 76 93 90
+<< nmos >>
+rect 30 0 45 42
+<< pmos >>
+rect 30 94 45 220
+<< ndiff >>
+rect 0 28 30 42
+rect 0 11 6 28
+rect 23 11 30 28
+rect 0 0 30 11
+rect 45 29 75 42
+rect 45 12 51 29
+rect 68 12 75 29
+rect 45 0 75 12
+<< pdiff >>
+rect 0 203 30 220
+rect 0 186 6 203
+rect 23 186 30 203
+rect 0 163 30 186
+rect 0 146 6 163
+rect 23 146 30 163
+rect 0 124 30 146
+rect 0 107 6 124
+rect 23 107 30 124
+rect 0 94 30 107
+rect 45 203 75 220
+rect 45 186 51 203
+rect 68 186 75 203
+rect 45 163 75 186
+rect 45 146 51 163
+rect 68 146 75 163
+rect 45 124 75 146
+rect 45 107 51 124
+rect 68 107 75 124
+rect 45 94 75 107
+<< ndiffc >>
+rect 6 11 23 28
+rect 51 12 68 29
+<< pdiffc >>
+rect 6 186 23 203
+rect 6 146 23 163
+rect 6 107 23 124
+rect 51 186 68 203
+rect 51 146 68 163
+rect 51 107 68 124
+<< psubdiff >>
+rect -30 29 0 42
+rect -30 12 -28 29
+rect -11 12 0 29
+rect -30 0 0 12
+<< nsubdiff >>
+rect -30 203 0 220
+rect -30 186 -28 203
+rect -11 186 0 203
+rect -30 163 0 186
+rect -30 146 -28 163
+rect -11 146 0 163
+rect -30 124 0 146
+rect -30 107 -28 124
+rect -11 107 0 124
+rect -30 94 0 107
+<< psubdiffcont >>
+rect -28 12 -11 29
+<< nsubdiffcont >>
+rect -28 186 -11 203
+rect -28 146 -11 163
+rect -28 107 -11 124
+<< poly >>
+rect 30 220 45 233
+rect 30 70 45 94
+rect -48 53 45 70
+rect 30 42 45 53
+rect 30 -13 45 0
+<< locali >>
+rect -28 257 0 260
+rect -28 240 -23 257
+rect -6 240 0 257
+rect -28 216 0 240
+rect -28 203 26 216
+rect -11 186 6 203
+rect 23 186 26 203
+rect -28 163 26 186
+rect -11 146 6 163
+rect 23 146 26 163
+rect -28 124 26 146
+rect -11 107 6 124
+rect 23 107 26 124
+rect -28 99 26 107
+rect 49 203 71 216
+rect 49 186 51 203
+rect 68 186 71 203
+rect 49 163 71 186
+rect 49 146 51 163
+rect 68 146 71 163
+rect 49 124 71 146
+rect 49 107 51 124
+rect 68 107 71 124
+rect 49 76 71 107
+rect 49 52 94 76
+rect -28 29 26 37
+rect -11 28 26 29
+rect -11 12 6 28
+rect -28 11 6 12
+rect 23 11 26 28
+rect -28 3 26 11
+rect 49 29 71 52
+rect 49 12 51 29
+rect 68 12 71 29
+rect 49 4 71 12
+rect -28 -16 0 3
+rect -28 -33 -22 -16
+rect -5 -33 0 -16
+rect -28 -36 0 -33
+<< viali >>
+rect -23 240 -6 257
+rect -22 -33 -5 -16
+<< metal1 >>
+rect -48 257 94 260
+rect -48 240 -23 257
+rect -6 240 94 257
+rect -48 236 94 240
+rect -48 -16 94 -12
+rect -48 -33 -22 -16
+rect -5 -33 94 -16
+rect -48 -36 94 -33
+<< end >>
