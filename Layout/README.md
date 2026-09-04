@@ -12,5 +12,5 @@
 
 |Cell|Label structure|
 |----|------|
-|Tranmission Gate| Vdd enb en in out Vss|
+|Tranmission Gate| Vdd en enb in out Vss|
 |Inverter_X1| Vdd vin vout Vss|
