@@ -1,0 +1,41 @@
+magic
+tech sky130A
+timestamp 1788590298
+<< error_s >>
+rect 310 103 327 112
+<< nwell >>
+rect 332 267 341 268
+rect 141 129 185 267
+rect 313 129 341 267
+<< poly >>
+rect 302 120 335 125
+rect 302 103 310 120
+rect 327 103 335 120
+rect 302 97 335 103
+<< polycont >>
+rect 310 103 327 120
+<< locali >>
+rect 141 95 143 126
+rect 302 120 335 125
+rect 302 103 310 120
+rect 327 103 335 120
+rect 302 97 335 103
+<< metal1 >>
+rect 141 272 142 296
+rect 313 272 340 296
+rect 141 0 142 24
+rect 313 1 340 24
+rect 313 0 332 1
+use Inverter_X1  Inverter_X1_0
+timestamp 1788589039
+transform 1 0 48 0 1 36
+box -48 -36 93 260
+use Inverter_X1  Inverter_X1_1
+timestamp 1788589039
+transform 1 0 380 0 1 36
+box -48 -36 93 260
+use Transmission_gate  Transmission_gate_0
+timestamp 1788588905
+transform 1 0 188 0 1 53
+box -46 -53 125 243
+<< end >>
