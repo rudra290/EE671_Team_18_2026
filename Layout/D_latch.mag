@@ -1,41 +1,86 @@
 magic
 tech sky130A
-timestamp 1788590298
-<< error_s >>
-rect 310 103 327 112
+timestamp 1788619879
 << nwell >>
-rect 332 267 341 268
 rect 141 129 185 267
-rect 313 129 341 267
+rect 313 129 342 267
+rect 483 113 503 275
+rect 644 129 673 267
 << poly >>
-rect 302 120 335 125
-rect 302 103 310 120
-rect 327 103 335 120
-rect 302 97 335 103
+rect 302 117 349 123
+rect 302 100 324 117
+rect 341 100 349 117
+rect 302 95 349 100
+rect 477 118 510 123
+rect 477 101 485 118
+rect 502 101 510 118
+rect 477 95 510 101
 << polycont >>
-rect 310 103 327 120
+rect 324 100 341 117
+rect 485 101 502 118
 << locali >>
-rect 141 95 143 126
-rect 302 120 335 125
-rect 302 103 310 120
-rect 327 103 335 120
-rect 302 97 335 103
+rect 141 95 143 123
+rect 302 117 349 123
+rect 302 100 324 117
+rect 341 100 349 117
+rect 302 95 349 100
+rect 477 118 510 123
+rect 477 101 485 118
+rect 502 101 510 118
+rect 477 95 510 101
+rect 644 95 645 123
+rect 741 118 767 121
+rect 741 101 744 118
+rect 761 101 767 118
+rect 741 98 767 101
+<< viali >>
+rect 324 100 341 117
+rect 485 101 502 118
+rect 744 101 761 118
 << metal1 >>
 rect 141 272 142 296
-rect 313 272 340 296
+rect 313 272 343 296
+rect 483 272 503 296
+rect 644 272 645 296
+rect 481 135 816 149
+rect 321 117 344 123
+rect 321 100 324 117
+rect 341 100 344 117
+rect 321 81 344 100
+rect 481 118 505 135
+rect 481 101 485 118
+rect 502 101 505 118
+rect 481 95 505 101
+rect 551 118 767 121
+rect 551 101 744 118
+rect 761 101 767 118
+rect 551 100 767 101
+rect 551 81 574 100
+rect 741 98 767 100
+rect 321 67 574 81
+rect 252 38 672 52
 rect 141 0 142 24
-rect 313 1 340 24
-rect 313 0 332 1
+rect 313 0 343 24
+rect 482 0 504 24
+rect 644 0 645 24
+use Inverter_x1  Inverter_x1_0
+timestamp 1788618265
+transform 1 0 551 0 1 36
+box -48 -36 93 260
 use Inverter_X1  Inverter_X1_0
-timestamp 1788589039
+timestamp 1788618265
 transform 1 0 48 0 1 36
 box -48 -36 93 260
 use Inverter_X1  Inverter_X1_1
-timestamp 1788589039
-transform 1 0 380 0 1 36
+timestamp 1788618265
+transform 1 0 390 0 1 36
 box -48 -36 93 260
 use Transmission_gate  Transmission_gate_0
-timestamp 1788588905
+timestamp 1788618112
 transform 1 0 188 0 1 53
+box -46 -53 125 243
+use Transmission_gate  Transmission_gate_1
+timestamp 1788618112
+transform 1 0 691 0 1 53
 box -46 -53 125 243
 << end >>
