@@ -7,14 +7,18 @@ xm02 out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42 as='w * 2 * l' ad='w *
 
 .subckt TG in n_in out p_in vdd vss
 xm01 in n_in out vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42 as='w * 2 * l' ad='w * 2 * l' ps='2 * (w + (2*l))' pd='2 * (w + (2*l))'
-xm02 out p_in in vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.26 as='w * 2 * l' ad='w * 2 * l' ps='2 * (w + (2*l))' pd='2 * (w + (2*l))'
+xm02 out p_in in vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.02 as='w * 2 * l' ad='w * 2 * l' ps='2 * (w + (2*l))' pd='2 * (w + (2*l))'
 .ends TG
+
+*PULSE(V1 V2 TD TR TF PW PER PHASE) V1 = Initial Voltage, V2 = Pulsed Voltage, TD = Delay time before the pulse starts, 
+* TR = Rise time from V1 to V2, TF = Fall time from V2 to V1, PW = Pulse width (duration at V2),
+* PER = Total period of one complete cycle
 
 *Circuit
 V_dd vdd 0 DC 1.8
 V_D in 0 		PULSE(0 1.8 0 10p 10p 10n 20n)
-V_CLK clk 0 		PULSE(0 1.8 1n 10p 10p 10n 20n)
-V_CLK_bar clk_bar 0 	PULSE(1.8 0 1n 10p 10p 10n 20n)
+V_CLK clk 0 		PULSE(1.8 0 200p 10p 10p 5n 10n)
+X_Inv_Clk clk vdd 0 clk_bar 		INVX1
 
 *Master (+ve Latch)
 X_Inv_A in vdd 0 A_out			INVX1
@@ -30,15 +34,17 @@ X_Inv_H	G_out vdd 0 H_out		INVX1
 X_TG_I 	H_out clk F_out clk_bar vdd 0	TG
 X_Inv_J	G_out vdd 0 Q			INVX1
 
-*Load (Used just to simulate an actual load)
-;C_Load Q 0 0.5f
-X_Inv_Load Q vdd 0 load_out		INVX1
+*Load 
+C_Load Q 0 0.5f
+;X_Inv_Load Q vdd 0 load_out		INVX1
 
-.tran 1p 22n
+.tran 10p 30n
+.measure tran tr TRIG v(Q) VAL=0.36 RISE=1 TARG v(Q) VAL=1.44 RISE=1
+.measure tran tf TRIG v(Q) VAL=1.44 FALL=1 TARG v(Q) VAL=0.36 FALL=1
 
 .control
 run
-plot v(in) v(Q) v(A_out) v(clk)
-plot v(A_out) v(B_out) v(C_out) v(D_out)
-plot v(F_out) v(G_out) v(H_out) v(Q)
+plot v(in) v(Q) v(clk)
+;plot v(A_out) v(B_out) v(C_out) v(D_out)
+;plot v(F_out) v(G_out) v(H_out) v(Q)
 .endc
