@@ -1,0 +1,55 @@
+box size 0.75um 0.42um
+box position 0 0
+paint ndiff
+
+box shrink e 0.3um
+box shrink w 0.3um
+paint poly
+
+box size 0.15um 0.15um
+box move s 0.15um
+paint poly
+
+box move n 0.57um
+paint poly
+
+box size 0.3um 0.42um
+box position 0 0
+box shrink center 0.04um
+paint li
+
+box size 0.17um 0.17um
+box move n 8
+box move e 2
+paint ndc
+
+box size 0.3um 0.42um
+box position 0.45um 0
+box shrink center 0.04um
+paint li
+
+box size 0.17um 0.17um
+box move n 8
+box move e 2
+paint ndc
+
+box position 0 0
+box size 0.3um 0.42um
+box move w 0.3um
+paint psd
+
+box shrink center 0.04um
+paint li
+
+box move w 0.02um
+paint li
+
+box size 0.17um 0.17um
+box move n 8
+paint psc
+
+box size 0.3um 0.42um
+box position 0 0
+box shrink center 0.04um
+box move w 10
+paint li
