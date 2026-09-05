@@ -1,21 +1,21 @@
 magic
 tech sky130A
-timestamp 1788588905
+timestamp 1788618112
 << nwell >>
 rect -18 76 125 214
 << nmos >>
-rect 30 -6 45 36
+rect 30 -11 45 31
 << pmos >>
 rect 30 94 45 196
 << ndiff >>
-rect 0 29 30 36
-rect 0 12 6 29
-rect 23 12 30 29
-rect 0 -6 30 12
-rect 45 29 75 36
-rect 45 12 52 29
-rect 69 12 75 29
-rect 45 -6 75 12
+rect 0 24 30 31
+rect 0 7 6 24
+rect 23 7 30 24
+rect 0 -11 30 7
+rect 45 24 75 31
+rect 45 7 52 24
+rect 69 7 75 24
+rect 45 -11 75 7
 << pdiff >>
 rect 0 178 30 196
 rect 0 161 6 178
@@ -32,18 +32,18 @@ rect 45 107 52 124
 rect 69 107 75 124
 rect 45 94 75 107
 << ndiffc >>
-rect 6 12 23 29
-rect 52 12 69 29
+rect 6 7 23 24
+rect 52 7 69 24
 << pdiffc >>
 rect 6 161 23 178
 rect 6 107 23 124
 rect 52 161 69 178
 rect 52 107 69 124
 << psubdiff >>
-rect 75 20 116 36
-rect 75 3 87 20
-rect 104 3 116 20
-rect 75 -6 116 3
+rect 75 15 116 31
+rect 75 -2 87 15
+rect 104 -2 116 15
+rect 75 -11 116 -2
 << nsubdiff >>
 rect 75 178 107 196
 rect 75 161 88 178
@@ -53,7 +53,7 @@ rect 75 111 88 128
 rect 105 111 107 128
 rect 75 94 107 111
 << psubdiffcont >>
-rect 87 3 104 20
+rect 87 -2 104 15
 << nsubdiffcont >>
 rect 88 161 105 178
 rect 88 111 105 128
@@ -65,16 +65,16 @@ rect -46 175 -41 192
 rect -24 175 -18 192
 rect -46 165 -18 175
 rect 30 81 45 94
-rect 30 36 45 49
-rect -46 5 -13 16
-rect -46 -12 -38 5
-rect -21 -12 -13 5
-rect -46 -14 -13 -12
-rect 30 -14 45 -6
-rect -46 -29 45 -14
+rect 30 31 45 44
+rect -46 0 -13 25
+rect -46 -17 -38 0
+rect -21 -17 -13 0
+rect -46 -19 -13 -17
+rect 30 -19 45 -11
+rect -46 -34 45 -19
 << polycont >>
 rect -41 175 -24 192
-rect -38 -12 -21 5
+rect -38 -17 -21 0
 << locali >>
 rect 87 240 106 243
 rect 87 223 88 240
@@ -89,22 +89,22 @@ rect 23 161 25 178
 rect 5 124 25 161
 rect 5 107 6 124
 rect 23 107 25 124
-rect 5 73 25 107
-rect -46 42 25 73
-rect 5 29 25 42
-rect -46 5 -13 16
-rect -46 -12 -38 5
-rect -21 -12 -13 5
-rect 5 12 6 29
-rect 23 12 25 29
-rect 5 4 25 12
+rect 5 70 25 107
+rect -46 42 25 70
+rect -46 0 -13 25
+rect -46 -17 -38 0
+rect -21 -17 -13 0
+rect 5 24 25 42
+rect 5 7 6 24
+rect 23 7 25 24
+rect 5 -1 25 7
 rect 50 178 70 186
 rect 50 161 52 178
 rect 69 161 70 178
 rect 50 124 70 161
 rect 50 107 52 124
 rect 69 107 70 124
-rect 50 72 70 107
+rect 50 70 70 107
 rect 87 178 106 223
 rect 87 161 88 178
 rect 105 161 106 178
@@ -112,15 +112,15 @@ rect 87 128 106 161
 rect 87 111 88 128
 rect 105 111 106 128
 rect 87 103 106 111
-rect 50 45 125 72
-rect 50 29 70 45
-rect 50 12 52 29
-rect 69 12 70 29
-rect 50 4 70 12
-rect 87 20 108 28
-rect -46 -29 -13 -12
-rect 104 3 108 20
-rect 87 -32 108 3
+rect 50 42 125 70
+rect 50 24 70 42
+rect 50 7 52 24
+rect 69 7 70 24
+rect 50 -1 70 7
+rect 87 15 108 23
+rect -46 -34 -13 -17
+rect 104 -2 108 15
+rect 87 -32 108 -2
 rect 87 -49 89 -32
 rect 106 -49 108 -32
 rect 87 -53 108 -49
@@ -141,12 +141,12 @@ rlabel metal1 -46 -41 -46 -41 7 Vss
 port 6 w
 rlabel metal1 -46 231 -46 231 7 Vdd
 port 1 w
-rlabel locali -46 63 -46 63 7 in
-port 4 w
-rlabel locali 125 63 125 63 3 out
-port 5 e
-rlabel locali -46 -16 -46 -16 7 en
-port 2 w
 rlabel locali -46 183 -46 183 7 enb
 port 3 w
+rlabel locali -46 61 -46 61 7 in
+port 4 w
+rlabel locali 125 61 125 61 3 out
+port 5 e
+rlabel locali -46 -21 -46 -21 7 en
+port 2 w
 << end >>
