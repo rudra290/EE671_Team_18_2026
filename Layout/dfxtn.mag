@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1788641034
+timestamp 1788641264
 << nwell >>
 rect -203 113 -180 275
 rect -40 121 0 275
@@ -116,4 +116,13 @@ use Latch  Latch_0
 timestamp 1788636704
 transform 1 0 701 0 1 0
 box 142 0 816 296
+<< labels >>
+rlabel metal1 -203 284 -203 284 7 Vdd
+port 1 w
+rlabel metal1 -203 172 -203 172 7 D
+port 2 w
+rlabel metal1 -203 12 -203 12 7 Vss
+port 4 w
+rlabel space 1705 109 1705 109 3 Q
+port 3 e
 << end >>
