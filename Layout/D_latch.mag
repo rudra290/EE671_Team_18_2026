@@ -1,14 +1,16 @@
 magic
 tech sky130A
-timestamp 1788631924
+timestamp 1788634322
 << nwell >>
-rect 140 267 171 270
+rect 141 270 816 275
+rect 141 267 170 270
 rect 313 267 344 270
-rect 141 129 185 267
-rect 313 129 342 267
-rect 483 113 503 275
+rect 141 132 185 267
+rect 313 132 342 267
+rect 483 132 503 270
 rect 644 267 675 270
-rect 644 129 673 267
+rect 644 132 673 267
+rect 141 113 816 132
 << poly >>
 rect 0 95 10 123
 rect 302 117 349 123
@@ -107,13 +109,13 @@ rect 141 0 142 24
 rect 313 0 343 24
 rect 482 0 504 24
 rect 644 0 645 24
-use Inverter_x1  Inverter_x1_0
-timestamp 1788618265
-transform 1 0 551 0 1 36
-box -48 -36 93 260
 use Inverter_X1  Inverter_X1_0
 timestamp 1788618265
 transform 1 0 48 0 1 36
+box -48 -36 93 260
+use Inverter_x1  Inverter_x1_0
+timestamp 1788618265
+transform 1 0 551 0 1 36
 box -48 -36 93 260
 use Inverter_X1  Inverter_X1_1
 timestamp 1788618265
