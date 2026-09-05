@@ -5,6 +5,11 @@ xm01 out in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.26 as='w * 2 * l' ad='w *
 xm02 out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42 as='w * 2 * l' ad='w * 2 * l' ps='2 * (w + (2*l))' pd='2 * (w + (2*l))'
 .ends INVX1
 
+.subckt INVX2 in vdd vss out
+xm01 out in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2.52 as='w * 2 * l' ad='w * 2 * l' ps='2 * (w + (2*l))' pd='2 * (w + (2*l))'
+xm02 out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84 as='w * 2 * l' ad='w * 2 * l' ps='2 * (w + (2*l))' pd='2 * (w + (2*l))'
+.ends INVX2
+
 .subckt TG in n_in out p_in vdd vss
 xm01 in n_in out vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42 as='w * 2 * l' ad='w * 2 * l' ps='2 * (w + (2*l))' pd='2 * (w + (2*l))'
 xm02 out p_in in vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.02 as='w * 2 * l' ad='w * 2 * l' ps='2 * (w + (2*l))' pd='2 * (w + (2*l))'
@@ -29,14 +34,14 @@ X_TG_E	D_out clk_bar B_out clk vdd 0	TG
 
 *Slave (-ve Latch)
 X_TG_F	C_out clk_bar F_out clk vdd 0	TG
-X_Inv_G F_out vdd 0 G_out		INVX1
+X_Inv_G F_out vdd 0 G_out		INVX2
 X_Inv_H	G_out vdd 0 H_out		INVX1
 X_TG_I 	H_out clk F_out clk_bar vdd 0	TG
 X_Inv_J	G_out vdd 0 Q			INVX1
 
 *Load 
-C_Load Q 0 0.5f
-;X_Inv_Load Q vdd 0 load_out		INVX1
+;C_Load Q 0 0.5f
+X_Inv_Load Q vdd 0 load_out		INVX1
 
 .tran 10p 30n
 .measure tran tr TRIG v(Q) VAL=0.36 RISE=1 TARG v(Q) VAL=1.44 RISE=1
