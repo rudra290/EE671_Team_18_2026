@@ -1,18 +1,3 @@
-*============================================================
-* SKY130 D Flip-Flop
-* Hierarchy:
-*
-* INVX1
-* INVX2
-* TG
-*   |
-* DLATCH
-*   |
-* DFXTN
-*   |
-* TOP-LEVEL TESTBENCH
-*
-*============================================================
 
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 
@@ -47,9 +32,7 @@ XINV_O Q_B vdd vss Q INVX2
 .ends DFXTN
 
 
-*============================================================
 * TOP-LEVEL TESTBENCH
-*============================================================
 
 VDD vdd 0 DC 1.8
 VD D 0 PULSE(0 1.8 0 10p 10p 10n 20n)
