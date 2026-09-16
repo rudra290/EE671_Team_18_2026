@@ -1,12 +1,12 @@
 magic
 tech sky130A
-timestamp 1788621782
+timestamp 1789570309
 << nwell >>
 rect -18 79 125 217
 << nmos >>
 rect 30 -19 45 23
 << pmos >>
-rect 30 97 45 199
+rect 30 97 45 195
 << ndiff >>
 rect 0 16 30 23
 rect 0 -1 4 16
@@ -17,14 +17,14 @@ rect 45 -1 52 16
 rect 69 -1 75 16
 rect 45 -19 75 -1
 << pdiff >>
-rect 0 181 30 199
+rect 0 181 30 195
 rect 0 164 6 181
 rect 23 164 30 181
 rect 0 130 30 164
 rect 0 113 6 130
 rect 23 113 30 130
 rect 0 97 30 113
-rect 45 181 75 199
+rect 45 181 75 195
 rect 45 164 52 181
 rect 69 164 75 181
 rect 45 130 75 164
@@ -45,7 +45,7 @@ rect 75 -10 87 7
 rect 104 -10 116 7
 rect 75 -19 116 -10
 << nsubdiff >>
-rect 75 181 107 199
+rect 75 181 107 195
 rect 75 164 88 181
 rect 105 164 107 181
 rect 75 131 107 164
@@ -58,22 +58,22 @@ rect 87 -10 104 7
 rect 88 164 105 181
 rect 88 114 105 131
 << poly >>
-rect -46 207 45 222
-rect -46 195 -18 207
-rect 30 199 45 207
+rect -46 204 45 219
+rect -46 195 -18 204
+rect 30 195 45 204
 rect -46 178 -41 195
 rect -24 178 -18 195
 rect -46 168 -18 178
 rect 30 84 45 97
-rect -12 60 15 68
-rect -12 43 -7 60
-rect 10 43 45 60
-rect -12 35 45 43
+rect -11 60 16 68
+rect -11 43 -6 60
+rect 11 43 45 60
+rect -11 35 45 43
 rect 30 23 45 35
 rect 30 -32 45 -19
 << polycont >>
 rect -41 178 -24 195
-rect -7 43 10 60
+rect -6 43 11 60
 << locali >>
 rect 87 240 106 243
 rect 87 223 88 240
@@ -96,7 +96,7 @@ rect 69 164 70 181
 rect 50 130 70 164
 rect 50 113 52 130
 rect 69 113 70 130
-rect -46 18 -29 104
+rect -46 18 -28 104
 rect 50 70 70 113
 rect 87 181 106 223
 rect 87 164 88 181
@@ -105,16 +105,16 @@ rect 87 131 106 164
 rect 87 114 88 131
 rect 105 114 106 131
 rect 87 106 106 114
-rect -12 60 15 68
-rect -12 43 -7 60
-rect 10 43 15 60
-rect -12 35 15 43
-rect 50 42 125 70
+rect -11 60 16 68
+rect -11 43 -6 60
+rect 11 43 16 60
+rect -11 35 16 43
+rect 50 43 125 70
 rect -46 16 29 18
 rect -46 -1 4 16
 rect 21 -1 29 16
 rect -46 -9 29 -1
-rect 50 16 70 42
+rect 50 16 70 43
 rect 50 -1 52 16
 rect 69 -1 70 16
 rect 50 -9 70 -1
@@ -137,14 +137,16 @@ rect -46 -49 89 -32
 rect 106 -49 125 -32
 rect -46 -53 125 -49
 << labels >>
-rlabel metal1 -46 -41 -46 -41 7 Vss
-port 6 w
-rlabel metal1 -46 231 -46 231 7 Vdd
-port 1 w
-rlabel locali -46 56 -46 56 7 in
+rlabel locali -11 50 -11 50 7 n_in
+port 2 w
+rlabel locali -46 186 -46 186 7 p_in
 port 4 w
+rlabel metal1 -46 231 -46 231 7 vdd
+port 5 w
+rlabel locali -46 56 -46 56 7 in
+port 1 w
 rlabel locali 125 56 125 56 3 out
-port 5 e
-rlabel locali -46 186 -46 186 7 enb
-port 3 w
+port 3 e
+rlabel metal1 -46 -41 -46 -41 7 vss
+port 6 w
 << end >>
