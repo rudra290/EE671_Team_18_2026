@@ -15,11 +15,11 @@ XM2 out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84 as='w*2*l' ad='w*2*l' p
 .subckt NAND vdd a b c vss out
 XINVA a vdd vss abar INVX2
 XM_Ap_bar   out abar vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_Bp       out b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2.4 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_Cp       out c vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2.4 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_An_bar   out abar ab ab sky130_fd_pr__nfet_01v8 l=0.15 w=1.0 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_Bn       ab b bc bc sky130_fd_pr__nfet_01v8 l=0.15 w=1.26 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_Cn       bc c vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.26 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_Bp       out b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_Cp       out c vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_An_bar   out abar ab ab sky130_fd_pr__nfet_01v8 l=0.15 w=1.86 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_Bn       ab b bc bc sky130_fd_pr__nfet_01v8 l=0.15 w=1.86 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_Cn       bc c vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.86 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
 .ends NAND
 
 * TOP-LEVEL TESTBENCH
