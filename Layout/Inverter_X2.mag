@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1789558787
+timestamp 1789567644
 << nwell >>
 rect -48 87 198 249
 << nmos >>
@@ -159,18 +159,28 @@ rect 124 27 178 36
 rect 124 10 127 27
 rect 144 10 161 27
 rect 124 2 178 10
+rect -28 -16 0 2
+rect -28 -33 -23 -16
+rect -6 -33 0 -16
+rect -28 -37 0 -33
+rect 150 -16 178 2
+rect 150 -33 156 -16
+rect 173 -33 178 -16
+rect 150 -37 178 -33
 << viali >>
 rect -23 238 -6 255
 rect 154 238 171 255
+rect -23 -33 -6 -16
+rect 156 -33 173 -16
 << metal1 >>
 rect -48 255 198 259
 rect -48 238 -23 255
 rect -6 238 154 255
 rect 171 238 198 255
 rect -48 235 198 238
-rect -48 -37 198 -13
-use Inverter_X1  Inverter_X1_0
-timestamp 1788618265
-transform 1 0 246 0 1 -1
-box -48 -36 93 260
+rect -48 -16 198 -13
+rect -48 -33 -23 -16
+rect -6 -33 156 -16
+rect 173 -33 198 -16
+rect -48 -37 198 -33
 << end >>
