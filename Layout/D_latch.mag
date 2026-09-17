@@ -1,145 +1,16 @@
 magic
 tech sky130A
-timestamp 1788634322
-<< nwell >>
-rect 141 270 816 275
-rect 141 267 170 270
-rect 313 267 344 270
-rect 141 132 185 267
-rect 313 132 342 267
-rect 483 132 503 270
-rect 644 267 675 270
-rect 644 132 673 267
-rect 141 113 816 132
-<< poly >>
-rect 0 95 10 123
-rect 302 117 349 123
-rect 302 100 324 117
-rect 341 100 349 117
-rect 302 95 349 100
-rect 477 118 510 123
-rect 477 101 485 118
-rect 502 101 510 118
-rect 477 95 510 101
-<< polycont >>
-rect 324 100 341 117
-rect 485 101 502 118
-<< locali >>
-rect 313 253 342 258
-rect 313 236 319 253
-rect 336 236 342 253
-rect 313 164 342 236
-rect 313 147 319 164
-rect 336 147 342 164
-rect 313 140 342 147
-rect 141 95 143 123
-rect 302 117 349 123
-rect 302 100 324 117
-rect 341 100 349 117
-rect 302 95 349 100
-rect 477 118 510 123
-rect 477 101 485 118
-rect 502 101 510 118
-rect 477 95 510 101
-rect 644 95 645 123
-rect 792 115 810 117
-<< viali >>
-rect 149 233 166 250
-rect 319 236 336 253
-rect 650 231 667 248
-rect 319 147 336 164
-rect 181 96 198 113
-rect 324 100 341 117
-rect 485 101 502 118
-rect 684 96 701 113
-rect 792 98 809 115
-<< metal1 >>
-rect 0 272 10 296
-rect 141 272 142 296
-rect 313 272 343 296
-rect 483 272 503 296
-rect 644 272 645 296
-rect 313 253 342 258
-rect 143 250 319 253
-rect 143 233 149 250
-rect 166 236 319 250
-rect 336 236 342 253
-rect 166 233 342 236
-rect 143 230 342 233
-rect 363 251 673 254
-rect 363 248 816 251
-rect 363 231 650 248
-rect 667 231 816 248
-rect 363 228 673 231
-rect 363 206 385 228
-rect 178 189 385 206
-rect 178 113 201 189
-rect 412 176 816 197
-rect 313 164 342 168
-rect 313 147 319 164
-rect 336 156 342 164
-rect 412 156 435 176
-rect 336 147 435 156
-rect 313 137 435 147
-rect 178 96 181 113
-rect 198 96 201 113
-rect 178 90 201 96
-rect 321 117 344 123
-rect 321 100 324 117
-rect 341 100 344 117
-rect 321 52 344 100
-rect 412 81 435 137
-rect 481 135 816 152
-rect 481 118 505 135
-rect 481 101 485 118
-rect 502 101 505 118
-rect 481 95 505 101
-rect 681 113 704 119
-rect 681 96 684 113
-rect 701 96 704 113
-rect 681 81 704 96
-rect 412 66 704 81
-rect 787 115 813 121
-rect 787 98 792 115
-rect 809 98 813 115
-rect 787 52 813 98
-rect 321 38 813 52
-rect 0 0 10 24
-rect 141 0 142 24
-rect 313 0 343 24
-rect 482 0 504 24
-rect 644 0 645 24
+timestamp 1789579602
 use Inverter_X1  Inverter_X1_0
-timestamp 1788618265
-transform 1 0 48 0 1 36
+timestamp 1789568807
+transform 1 0 465 0 1 36
 box -48 -36 93 260
-use Inverter_x1  Inverter_x1_0
-timestamp 1788618265
-transform 1 0 551 0 1 36
-box -48 -36 93 260
-use Inverter_X1  Inverter_X1_1
-timestamp 1788618265
-transform 1 0 390 0 1 36
-box -48 -36 93 260
+use Inverter_X2  Inverter_X2_0
+timestamp 1789579602
+transform 1 0 219 0 1 37
+box -48 -37 198 259
 use Transmission_gate  Transmission_gate_0
-timestamp 1788621782
-transform 1 0 188 0 1 53
+timestamp 1789579318
+transform 1 0 46 0 1 53
 box -46 -53 125 243
-use Transmission_gate  Transmission_gate_1
-timestamp 1788621782
-transform 1 0 691 0 1 53
-box -46 -53 125 243
-<< labels >>
-rlabel metal1 0 284 0 284 7 Vdd
-port 1 w
-rlabel poly 0 109 0 109 7 D
-port 2 w
-rlabel metal1 0 12 0 12 7 Vss
-port 6 w
-rlabel metal1 816 241 816 241 3 n_clk
-port 3 e
-rlabel metal1 816 186 816 186 3 p_clk
-port 4 e
-rlabel metal1 816 143 816 143 3 Q
-port 5 e
 << end >>
