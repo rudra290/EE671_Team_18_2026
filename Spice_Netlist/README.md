@@ -8,32 +8,48 @@ We need to add spice models for the following:
 > I have added Two tests for Transmission gate PMOS width calculation. And after the simulations I can say, we should use Wp = 1.02um. Which is giving symmatrical Tphl and Tphl. And I am going for that in Layout.
 
 
-### Output of CP1_DFF: (Using INVX1 as load)
+### Output of CP1_DFF (SPICE): (Using INVX1 as load)
+<!-- Has syntax as XDFF D CLK vdd vss Q DFXTN -->
+
+Initial Transient Solution:
+Node                                   Voltage
+vdd                                        1.8
+d                                            0
+clk                                        1.8
+xdft.clk_b                         1.12952e-07
+xdft.d_b                                   1.8
+xdft.xdlatch_a.a                           1.8
+xdft.q_a                           3.84913e-07
+xdft.xdlatch_a.b                           1.8
+xdft.xdlatch_b.a                   1.34347e-07
+xdft.q_b                                   1.8
+xdft.xdlatch_b.b                   1.25335e-07
+q                                  3.82287e-07
+load_out                                   1.8
+vclk#branch                                  0
+vd#branch                                    0
+vdd#branch                        -1.02226e-09
+
+Measurements for Transient Analysis
+trise               =  1.85586e-11 targ=  3.29090e-10 trig=  3.10532e-10  (= 18.55 ps)
+tfall               =  1.78465e-11 targ=  1.03336e-08 trig=  1.03158e-08  (= 17.84 ps)
+
+### Output of CP1_NAND3 (SPICE): (Using INVX1 as load)
+<!-- Has syntax as XNAND vdd a b c vss out NAND -->
 
 Initial Transient Solution:
 Node                                   Voltage
 vdd                                        1.8
 in                                           0
-clk                                        1.8
-clk_bar                            1.12952e-07
-a_out                                      1.8
-b_out                                      1.8
-c_out                              1.18756e-07
-d_out                                      1.8
-f_out                              1.34673e-07
-g_out                                      1.8
-h_out                              1.25498e-07
-q                                  1.12952e-07
+xnand.abar                                 1.8
+out                                 1.6756e-06
+xnand.ab                           1.11707e-06
+xnand.bc                           5.58533e-07
 load_out                                   1.8
+v_a#branch                                   0
+vdd#branch                        -1.63817e-09
 
-Measurements for Transient Analysis:
-tr                  =  2.60042e-11 targ=  3.38792e-10 trig=  3.12787e-10
-tf                  =  2.50759e-11 targ=  1.03486e-08 trig=  1.03236e-08
+Measurements for Transient Analysis
 
-Using C=0.5fF as load we get:
-tr                  =  1.91878e-11 targ=  3.25996e-10 trig=  3.06808e-10
-tf                  =  1.64744e-11 targ=  1.03361e-08 trig=  1.03196e-08
-
-After making Inverter G as X2 (using INVX1 load):
-tr                  =  23.7 ps
-tf                  =  23.3 ps
+trise               =  2.20878e-11 targ=  1.07030e-09 trig=  1.04821e-09  (= 22.08 ps)
+tfall               =  2.21869e-11 targ=  4.07755e-09 trig=  4.05536e-09  (= 22.18 ps)
