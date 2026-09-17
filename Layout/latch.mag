@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1789656489
+timestamp 1789668003
 << nwell >>
 rect 171 144 190 282
 rect 361 260 362 282
@@ -13,6 +13,7 @@ rect 503 136 539 294
 rect 169 253 192 255
 rect 169 236 172 253
 rect 189 236 192 253
+rect 0 56 18 191
 rect 169 175 192 236
 rect 169 158 172 175
 rect 189 158 192 175
@@ -23,6 +24,7 @@ rect 500 135 522 188
 rect 171 108 190 135
 rect 361 108 362 135
 rect 503 108 522 135
+rect 778 108 785 135
 << viali >>
 rect 6 236 23 253
 rect 172 236 189 253
@@ -35,6 +37,7 @@ rect 40 108 57 125
 rect 303 113 320 130
 rect 547 113 564 130
 << metal1 >>
+rect 0 272 18 320
 rect 171 272 190 320
 rect 361 272 362 320
 rect 503 272 539 320
@@ -73,11 +76,12 @@ rect 543 113 547 130
 rect 564 113 568 130
 rect 37 100 61 108
 rect 543 107 568 113
+rect 0 0 18 48
 rect 171 0 190 48
 rect 361 0 362 48
 rect 503 0 539 48
 use Inverter_X1  Inverter_X1_0
-timestamp 1789635265
+timestamp 1789667842
 transform -1 0 455 0 1 48
 box -48 -48 93 272
 use Inverter_X2  Inverter_X2_0
@@ -93,16 +97,16 @@ timestamp 1789635429
 transform -1 0 315 0 1 65
 box -46 -65 125 255
 << labels >>
-rlabel space 0 24 0 24 7 vss
+rlabel metal1 0 24 0 24 7 vss
 port 5 w
-rlabel space 0 121 0 121 7 D
-port 1 w
-rlabel space 0 296 0 296 7 vdd
+rlabel metal1 0 296 0 296 7 vdd
 port 4 w
-rlabel space 785 121 785 121 3 Q
+rlabel locali 785 121 785 121 3 Q
 port 6 e
 rlabel metal1 0 243 0 243 7 CLK_B
 port 3 w
 rlabel viali 40 108 57 125 1 CLK
 port 2 n
+rlabel locali 0 56 18 191 7 D
+port 1 w
 << end >>
