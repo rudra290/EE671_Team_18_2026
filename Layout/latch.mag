@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1789655935
+timestamp 1789656489
 << nwell >>
 rect 171 144 190 282
 rect 361 260 362 282
@@ -92,4 +92,17 @@ use Transmission_gate  Transmission_gate_1
 timestamp 1789635429
 transform -1 0 315 0 1 65
 box -46 -65 125 255
+<< labels >>
+rlabel space 0 24 0 24 7 vss
+port 5 w
+rlabel space 0 121 0 121 7 D
+port 1 w
+rlabel space 0 296 0 296 7 vdd
+port 4 w
+rlabel space 785 121 785 121 3 Q
+port 6 e
+rlabel metal1 0 243 0 243 7 CLK_B
+port 3 w
+rlabel viali 40 108 57 125 1 CLK
+port 2 n
 << end >>
