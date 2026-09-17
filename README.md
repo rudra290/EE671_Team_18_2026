@@ -50,19 +50,19 @@ Team_num18
 
 ## Deliverables
 
-- [ ] Project Plan and assignment
-- [ ] Report Skeleton
+- [x] Project Plan and assignment
+- [x] Report Skeleton
 - [ ] Spice Netlist
-  - [ ] inv
-  - [ ] dfxtn
+  - [x] inv
+  - [x] dfxtn
   - [ ] nand3b
 - [ ] Verilog code
   - [ ] inv
   - [ ] dfxtn
   - [ ] nand3b
 - [ ] Draw the layout
-  - [ ] inv
-  - [ ] dfxtn
+  - [x] inv
+  - [x] dfxtn
   - [ ] nand3b
 - [ ] Export the LEF
   - [ ] inv
