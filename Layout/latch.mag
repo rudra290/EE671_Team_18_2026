@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1789711002
+timestamp 1789713821
 << nwell >>
 rect 171 144 190 282
 rect 361 260 362 282
@@ -22,6 +22,7 @@ rect 171 108 190 135
 rect 361 108 362 135
 rect 500 108 525 195
 rect 593 176 621 195
+rect 953 108 986 135
 << viali >>
 rect 6 236 23 253
 rect 172 236 189 253
@@ -97,6 +98,6 @@ rlabel viali 40 108 57 125 1 CLK
 port 2 n
 rlabel locali 0 56 18 191 7 D
 port 1 w
-rlabel space 953 108 986 135 3 Q
+rlabel locali 953 108 986 135 3 Q
 port 6 e
 << end >>
