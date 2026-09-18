@@ -1,9 +1,9 @@
 * NGSPICE file created from dfxtn.ext - technology: sky130A
 
-.subckt Inverter_X1 Vdd vin vout Vss
-X0 vout vin Vdd Vdd sky130_fd_pr__pfet_01v8 ad=0.378 pd=3.12 as=0.378 ps=3.12 w=1.26 l=0.15
+.subckt Inverter_X1 in vdd vss out
+X0 out in vdd vdd sky130_fd_pr__pfet_01v8 ad=0.378 pd=3.12 as=0.378 ps=3.12 w=1.26 l=0.15
 **devattr s=15120,624 d=15120,624
-X1 vout vin Vss Vss sky130_fd_pr__nfet_01v8 ad=0.126 pd=1.44 as=0.126 ps=1.44 w=0.42 l=0.15
+X1 out in vss vss sky130_fd_pr__nfet_01v8 ad=0.126 pd=1.44 as=0.126 ps=1.44 w=0.42 l=0.15
 **devattr s=5040,288 d=5040,288
 .ends
 
@@ -15,31 +15,23 @@ X1 out p_in in vdd sky130_fd_pr__pfet_01v8 ad=0.294 pd=2.56 as=0.294 ps=2.56 w=0
 .ends
 
 .subckt Inverter_X2 in vdd vss out
-X0 vdd in out vdd sky130_fd_pr__nfet_01v8 ad=0.126 pd=1.44 as=0.126 ps=1.02 w=0.42 l=0.15
-**devattr s=5040,204 d=5040,288
-X1 out in vss vss sky130_fd_pr__pfet_01v8 ad=0.378 pd=1.86 as=0.378 ps=3.12 w=1.26 l=0.15
-**devattr s=15120,624 d=15120,372
-X2 out in vdd vdd sky130_fd_pr__nfet_01v8 ad=0.126 pd=1.02 as=0.126 ps=1.44 w=0.42 l=0.15
-**devattr s=5040,288 d=5040,204
-X3 vss in out vss sky130_fd_pr__pfet_01v8 ad=0.378 pd=3.12 as=0.378 ps=1.86 w=1.26 l=0.15
-**devattr s=15120,372 d=15120,624
+X0 out in vss vss sky130_fd_pr__nfet_01v8 ad=0.234 pd=2.16 as=0.234 ps=2.16 w=0.78 l=0.15
+**devattr s=9360,432 d=9360,432
+X1 vdd in out vdd sky130_fd_pr__pfet_01v8 ad=0.756 pd=5.64 as=0.756 ps=5.64 w=2.52 l=0.15
+**devattr s=30240,1128 d=30240,1128
 .ends
 
-.subckt latch CLK CLK_B Inverter_X2_0/out Transmission_gate_0/in Inverter_X2_0/vss
-+ VSUBS
-XTransmission_gate_0 Transmission_gate_0/in CLK Inverter_X2_0/in CLK_B Inverter_X2_0/vss
-+ VSUBS Transmission_gate
-XTransmission_gate_1 Inverter_X1_0/vout CLK_B Inverter_X2_0/in CLK Inverter_X2_0/vss
-+ VSUBS Transmission_gate
-XInverter_X2_0 Inverter_X2_0/in VSUBS Inverter_X2_0/vss Inverter_X2_0/out Inverter_X2
-XInverter_X1_0 Inverter_X2_0/vss Inverter_X2_0/out Inverter_X1_0/vout VSUBS Inverter_X1
+.subckt latch D CLK CLK_B Q vdd vss
+XTransmission_gate_0 D CLK Inverter_X2_0/in CLK_B vdd vss Transmission_gate
+XTransmission_gate_1 Inverter_X1_0/out CLK_B Inverter_X2_0/in CLK vdd vss Transmission_gate
+XInverter_X2_0 Inverter_X2_0/in vdd vss Q Inverter_X2
+XInverter_X1_0 Q vdd vss Inverter_X1_0/out Inverter_X1
 .ends
 
 .subckt dfxtn D CLK vdd vss Q
-XInverter_X1_1 vdd CLK latch_1/CLK vss Inverter_X1
-Xlatch_0 CLK latch_1/CLK latch_0/Inverter_X2_0/out Inverter_X1_0/vout vdd vss latch
-Xlatch_1 latch_1/CLK CLK Inverter_X2_0/in latch_0/Inverter_X2_0/out vdd vss latch
-XInverter_X2_0 Inverter_X2_0/in vss vdd Q Inverter_X2
-XInverter_X1_0 vdd D Inverter_X1_0/vout vss Inverter_X1
+XInverter_X1_1 CLK vdd vss latch_1/CLK Inverter_X1
+Xlatch_0 latch_0/D CLK latch_1/CLK latch_1/D vdd vss latch
+Xlatch_1 latch_1/D latch_1/CLK CLK latch_1/Q vdd vss latch
+XInverter_X2_0 latch_1/Q vdd vss Q Inverter_X2
+XInverter_X1_0 D vdd vss latch_0/D Inverter_X1
 .ends
-
