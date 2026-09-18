@@ -6,20 +6,20 @@ XM2 out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42 as='w*2*l' ad='w*2*l' p
 .ends INVX1
 
 .subckt INVX2 in vdd vss out
-XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2.52 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM2 out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=5.04 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM2 out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.68 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
 .ends INVX2
 
 * drain gate source body
 
-.subckt NAND vdd a b c vss out
-XINVA a vdd vss abar INVX2
-XM_Ap_bar   out abar vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_Bp       out b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_Cp       out c vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_An_bar   out abar ab ab sky130_fd_pr__nfet_01v8 l=0.15 w=1.86 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_Bn       ab b bc bc sky130_fd_pr__nfet_01v8 l=0.15 w=1.86 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
-XM_Cn       bc c vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.86 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+.subckt NAND vdd abar b c vss out
+* XINVA a vdd vss abar INVX2
+XM_Ap_bar   out abar vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2.7 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_Bp       out b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3.1 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_Cp       out c vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3.5 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_An_bar   out abar ab ab sky130_fd_pr__nfet_01v8 l=0.15 w=1.9 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_Bn       ab b bc bc sky130_fd_pr__nfet_01v8 l=0.15 w=1.7 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
+XM_Cn       bc c vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.6 as='w*2*l' ad='w*2*l' ps='2*(w+(2*l))' pd='2*(w+(2*l))'
 .ends NAND
 
 * TOP-LEVEL TESTBENCH
@@ -27,7 +27,7 @@ XM_Cn       bc c vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.86 as='w*2*l' ad='w*
 VDD vdd 0 DC 1.8
 V_A in 0 PULSE(0 1.8 1n 10p 10p 3n 6n)
 * B=C=vdd NAND out = A
-XNAND vdd in vdd vdd 0 out NAND
+XNAND vdd vdd vdd in 0 out NAND
 XLOAD out vdd 0 LOAD_OUT INVX1
 
 * Optional capacitive load
