@@ -1,0 +1,76 @@
+* Post-layout inverter static and dynamic power characterization
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt InvX1_PEX vin Vdd Vss vout
+.include Spice_Netlist/inv_pex.spice
+.ends InvX1_PEX
+
+.param SLEWVAL=10p
+.param CLOADVAL=0.5f
+
+VDD0 vdd0 0 DC 1.8
+VIN0 in0 0 DC 0
+XSTATIC0 in0 vdd0 0 out0 InvX1_PEX
+BPSTATIC0 pstatic0 0 V=-v(vdd0)*i(VDD0)
+
+VDD1 vdd1 0 DC 1.8
+VIN1 in1 0 DC 1.8
+XSTATIC1 in1 vdd1 0 out1 InvX1_PEX
+BPSTATIC1 pstatic1 0 V=-v(vdd1)*i(VDD1)
+
+VDDRISE vdd_rise 0 DC 1.8
+VRISE in_rise 0 PULSE(1.8 0 2n {SLEWVAL} {SLEWVAL} 20n 40n)
+XRISE in_rise vdd_rise 0 out_rise InvX1_PEX
+CRISE out_rise 0 {CLOADVAL}
+BPRISE prise 0 V=-v(vdd_rise)*i(VDDRISE)
+
+VDDFALL vdd_fall 0 DC 1.8
+VFALL in_fall 0 PULSE(0 1.8 2n {SLEWVAL} {SLEWVAL} 20n 40n)
+XFALL in_fall vdd_fall 0 out_fall InvX1_PEX
+CFALL out_fall 0 {CLOADVAL}
+BPFALL pfall 0 V=-v(vdd_fall)*i(VDDFALL)
+
+.control
+set noaskquit
+
+reset
+tran 0.5p 8n
+meas tran p_static_0 avg v(pstatic0) from=1n to=8n
+meas tran p_static_1 avg v(pstatic1) from=1n to=8n
+let p_static_0_nw = p_static_0 * 1e9
+let p_static_1_nw = p_static_1 * 1e9
+echo static_power,,,vin_0,$&p_static_0_nw,nW >> Reports/inv_characterization.csv
+echo static_power,,,vin_1,$&p_static_1_nw,nW >> Reports/inv_characterization.csv
+print p_static_0_nw p_static_1_nw
+
+foreach slew 10p 100p 1000p
+    foreach load 0.5f 10f 100f
+        alterparam SLEWVAL = $slew
+        alterparam CLOADVAL = $load
+        reset
+        tran 0.5p 8n
+
+        meas tran p0 avg v(pstatic0) from=0 to=8n
+        meas tran p1 avg v(pstatic1) from=0 to=8n
+        meas tran e_rise integ v(prise) from=0 to=8n
+        meas tran e_fall integ v(pfall) from=0 to=8n
+
+        let slew_s = $slew
+        let slew_ps = $slew * 1e12
+        let load_ff = $load * 1e15
+        let leak_rise = p1 * 2n + (p1 + p0) * slew_s / 2 + p0 * (6n - slew_s)
+        let leak_fall = p0 * 2n + (p0 + p1) * slew_s / 2 + p1 * (6n - slew_s)
+        let p_rise_nw = (e_rise - leak_rise) / 8n * 1e9
+        let p_fall_nw = (e_fall - leak_fall) / 8n * 1e9
+
+        echo rise_dynamic_power,$&slew_ps,$&load_ff,rise,$&p_rise_nw,nW >> Reports/inv_characterization.csv
+        echo fall_dynamic_power,$&slew_ps,$&load_ff,fall,$&p_fall_nw,nW >> Reports/inv_characterization.csv
+        print p_rise_nw p_fall_nw
+    end
+end
+
+quit
+.endc
+
+.end

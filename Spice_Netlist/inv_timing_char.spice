@@ -1,0 +1,52 @@
+* Post-layout inverter timing characterization
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt InvX1_PEX vin Vdd Vss vout
+.include Spice_Netlist/inv_pex.spice
+.ends InvX1_PEX
+
+VDD vdd 0 DC 1.8
+
+.param SLEWVAL=10p
+.param CLOADVAL=0.5f
+
+VCHAR in_char 0 PULSE(0 1.8 1n {SLEWVAL} {SLEWVAL} 3n 8n)
+XCHAR in_char vdd 0 out_char InvX1_PEX
+CCHAR out_char 0 {CLOADVAL}
+
+.control
+set noaskquit
+
+foreach slew 10p 100p 1000p
+    foreach load 0.5f 10f 100f
+        alterparam SLEWVAL = $slew
+        alterparam CLOADVAL = $load
+        reset
+        tran 0.5p 8n
+
+        meas tran t_r trig v(out_char) val=0.36 rise=1 targ v(out_char) val=1.44 rise=1
+        meas tran t_f trig v(out_char) val=1.44 fall=1 targ v(out_char) val=0.36 fall=1
+        meas tran t_phl trig v(in_char) val=0.9 rise=1 targ v(out_char) val=0.9 fall=1
+        meas tran t_plh trig v(in_char) val=0.9 fall=1 targ v(out_char) val=0.9 rise=1
+
+        let slew_ps = $slew * 1e12
+        let load_ff = $load * 1e15
+        let tr_ps = t_r * 1e12
+        let tf_ps = t_f * 1e12
+        let tplh_ps = t_plh * 1e12
+        let tphl_ps = t_phl * 1e12
+
+        echo rise_transition,$&slew_ps,$&load_ff,rise,$&tr_ps,ps >> Reports/inv_characterization.csv
+        echo fall_transition,$&slew_ps,$&load_ff,fall,$&tf_ps,ps >> Reports/inv_characterization.csv
+        echo cell_rise_delay,$&slew_ps,$&load_ff,rise,$&tplh_ps,ps >> Reports/inv_characterization.csv
+        echo cell_fall_delay,$&slew_ps,$&load_ff,fall,$&tphl_ps,ps >> Reports/inv_characterization.csv
+
+        print tr_ps tf_ps tplh_ps tphl_ps
+    end
+end
+
+quit
+.endc
+
+.end

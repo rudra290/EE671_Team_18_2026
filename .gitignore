@@ -1,3 +1,8 @@
 Reports/output.pdf
 Reports/output.tex
 Layout/sky130A.tech
+Layout/*.ext
+*.raw
+*.swp
+Charlib/results/
+Reports/inv_*.log

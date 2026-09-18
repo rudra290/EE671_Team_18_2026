@@ -1,0 +1,106 @@
+library (inv){
+  technology : cmos ;
+  delay_model : table_lookup ;
+  bus_naming_style : "%s-%d" ;
+  time_unit : "1ns" ;
+  voltage_unit : "1V" ;
+  leakage_power_unit : "1nW" ;
+  current_unit : "1uA" ;
+  pulling_resistance_unit : "1uA" ;
+  capacitive_load_unit (1, pF);
+  nom_process : 1.00 ;
+  nom_voltage : 1.80 ;
+  nom_temperature : 27 ;
+  slew_upper_threshold_pct_rise : 0.80 ;
+  slew_lower_threshold_pct_rise : 0.20 ;
+  slew_upper_threshold_pct_fall : 0.80 ;
+  slew_lower_threshold_pct_fall : 0.20 ;
+  input_threshold_pct_rise : 0.50 ;
+  input_threshold_pct_fall : 0.50 ;
+  output_threshold_pct_rise : 0.50 ;
+  output_threshold_pct_fall : 0.50 ;
+  operating_conditions (typical) {
+    process : 1.00 ;
+    voltage : 1.80 ;
+    temperature : 27 ;
+  } /* end operating_conditions */
+  lu_table_template (delay_template_3x3) {
+    variable_1 : total_output_net_capacitance ;
+    variable_2 : input_net_transition ;
+    index_1 ("1.0, 2.0, 3.0");
+    index_2 ("1.0, 2.0, 3.0");
+  } /* end lu_table_template */
+  cell (inv) {
+    area : 5.34 ;
+    pin (VIN) {
+      direction : input ;
+      rise_capacitance : 0.002121 ;
+      fall_capacitance : 0.002045 ;
+      capacitance : 0.002121 ;
+    } /* end pin */
+    pg_pin (VDD) {
+      voltage_name : VDD ;
+      pg_type : primary_power ;
+    } /* end pg_pin */
+    pg_pin (VSS) {
+      voltage_name : VSS ;
+      pg_type : primary_ground ;
+    } /* end pg_pin */
+    pin (VOUT) {
+      direction : output ;
+      function : "VOUT = !VIN" ;
+      timing () {
+        related_pin : VIN ;
+        timing_type : combinational_rise ;
+        rise_transition (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.010615, 0.030933, 0.171502" \
+            "0.066558, 0.072600, 0.263238" \
+            "0.596822, 0.596870, 0.679152" \
+          ) ;
+        } /* end rise_transition */
+        cell_rise (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.014364, 0.037019, 0.083038" \
+            "0.053455, 0.091160, 0.264945" \
+            "0.415303, 0.453162, 0.837653" \
+          ) ;
+        } /* end cell_rise */
+      } /* end timing */
+      timing () {
+        related_pin : VIN ;
+        timing_type : combinational_fall ;
+        fall_transition (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.010920, 0.026814, 0.159726" \
+            "0.070936, 0.074757, 0.241691" \
+            "0.639877, 0.639924, 0.705842" \
+          ) ;
+        } /* end fall_transition */
+        cell_fall (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.017628, 0.038021, 0.069887" \
+            "0.065054, 0.097905, 0.255237" \
+            "0.500882, 0.534679, 0.879266" \
+          ) ;
+        } /* end cell_fall */
+      } /* end timing */
+    } /* end pin */
+    leakage_power () {
+      when : "!VIN" ;
+      value : 0.003305 ;
+    } /* end leakage_power */
+    leakage_power () {
+      when : VIN ;
+      value : 0.108613 ;
+    } /* end leakage_power */
+  } /* end cell */
+} /* end library */
