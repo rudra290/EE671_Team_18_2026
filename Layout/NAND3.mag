@@ -1,0 +1,34 @@
+magic
+tech sky130A
+timestamp 1789810500
+<< nwell >>
+rect -1 281 264 299
+rect 1 269 264 281
+rect -8 260 264 269
+rect -5 162 264 260
+rect -5 121 268 162
+rect 21 23 268 121
+<< pmos >>
+rect 48 189 243 204
+rect 49 87 249 102
+<< pdiff >>
+rect 48 204 243 234
+rect 48 159 243 189
+rect 49 102 249 132
+rect 49 57 249 87
+<< nsubdiff >>
+rect 48 234 243 264
+<< poly >>
+rect 35 189 48 204
+rect 243 189 256 204
+rect 36 87 49 102
+rect 249 87 262 102
+<< metal1 >>
+rect 0 272 500 320
+rect 25 48 266 49
+rect 0 0 500 48
+use Inverter_X1  Inverter_X1_0
+timestamp 1789667842
+transform 1 0 -91 0 1 48
+box -48 -48 93 272
+<< end >>
