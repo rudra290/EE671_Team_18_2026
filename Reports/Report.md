@@ -44,3 +44,71 @@ This project details the design and deployment of a fault-tolerant storage syste
 \begin{equation}\label{eq:consensus}
 Q = \left\lfloor \frac{N}{2} \right\rfloor + 1
 \end{equation}
+
+DRC Clean Layout's:
+
+<div align="center">
+Inverter X1 Layout
+</div>
+
+![Inverter X1 Layout](./Layout_Screenshots/Inverter_X1_Layout.png)
+
+<div align="center">
+Inverter X2 Layout
+</div>
+
+![Inverter X2 Layout](./Layout_Screenshots/Inverter_X2_Layout.png)
+
+<div align="center">
+Transmission Gate Layout
+</div>
+
+![Transmission Gate Layout](./Layout_Screenshots/Transmission_Gate_Layout.png)
+
+<div align="center">
+Masked Latch Layout
+</div>
+
+![Masked Latch Layout](./Layout_Screenshots/Latch_Masked_Layout.png)
+
+<div align="center">
+Latch Layout
+</div>
+
+![Latch Layout](./Layout_Screenshots/Latch_Layout.png)
+
+<div align="center">
+Masked Negative Edge triggered D Flip Flop Layout
+</div>
+
+![Masked DFF Layout](./Layout_Screenshots/DFF_Masked_Layout.png)
+
+<div align="center">
+Negative Edge triggered D Flip Flop Layout
+</div>
+
+![DFF Layout](./Layout_Screenshots/DFF_Layout.png)
+
+<div align="center">
+Inverter X1_25 Layout
+</div>
+
+![Inverter X1_25 Layout](./Layout_Screenshots/Inverter_X1_25_Layout.png)
+
+<div align="center">
+NAND MOSFETs' Layout
+</div>
+
+![NAND MOSFET Layout](./Layout_Screenshots/NAND3_Layout.png)
+
+<div align="center">
+NAND3b Masked Layout
+</div>
+
+![NAND3b Masked Layout](./Layout_Screenshots/nand3b_Masked_Layout.png)
+
+<div align="center">
+NAND3b Layout
+</div>
+
+![NAND3b Layout](./Layout_Screenshots/nand3b_Layout.png)

@@ -11,3 +11,8 @@
 ```bash
 pandoc temp.md --template=template.tex -o output.pdf --pdf-engine=lualatex --filter pandoc-crossref --lua-filter=inline.lua 
 ```
+
+### Note for understanding the files in Layout_Screenshots
+Files ending in layout are annotated, DRC Clean Screenshots.
+
+Screenshots with 'Masked' written on them do not show the entire layout of the cell, it shows on the instantiation and the connection of different cells to complete the entire layout. 
