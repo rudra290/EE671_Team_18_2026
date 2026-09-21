@@ -1,60 +1,60 @@
 metric,slew_ps,load_fF,condition,value,unit
-rise_transition 10 0.5 rise 10.5839 ps
-fall_transition 10 0.5 fall 10.887 ps
-cell_rise_delay 10 0.5 rise 12.8525 ps
-cell_fall_delay 10 0.5 fall 16.5586 ps
-rise_transition 10 10 rise 66.5543 ps
-fall_transition 10 10 fall 70.9343 ps
-cell_rise_delay 10 10 rise 51.8419 ps
-cell_fall_delay 10 10 fall 63.6717 ps
-rise_transition 10 100 rise 596.821 ps
-fall_transition 10 100 fall 639.877 ps
-cell_rise_delay 10 100 rise 413.627 ps
-cell_fall_delay 10 100 fall 499.389 ps
-rise_transition 100 0.5 rise 20.973 ps
-fall_transition 100 0.5 fall 18.5645 ps
-cell_rise_delay 100 0.5 rise 30.0273 ps
-cell_fall_delay 100 0.5 fall 31.6656 ps
-rise_transition 100 10 rise 66.982 ps
-fall_transition 100 10 fall 70.9445 ps
-cell_rise_delay 100 10 rise 74.2219 ps
-cell_fall_delay 100 10 fall 83.038 ps
-rise_transition 100 100 rise 596.821 ps
-fall_transition 100 100 fall 639.877 ps
-cell_rise_delay 100 100 rise 436.413 ps
-cell_fall_delay 100 100 fall 519.72 ps
-rise_transition 1000 0.5 rise 86.2792 ps
-fall_transition 1000 0.5 fall 77.0342 ps
-cell_rise_delay 1000 0.5 rise 71.8504 ps
-cell_fall_delay 1000 0.5 fall 67.4899 ps
-rise_transition 1000 10 rise 181.79 ps
-fall_transition 1000 10 fall 172.947 ps
-cell_rise_delay 1000 10 rise 215.714 ps
-cell_fall_delay 1000 10 fall 211.524 ps
-rise_transition 1000 100 rise 609.04 ps
-fall_transition 1000 100 fall 646.609 ps
-cell_rise_delay 1000 100 rise 666.283 ps
-cell_fall_delay 1000 100 fall 725.395 ps
-input_cap , rise 2.62121 ff
-input_cap , fall 2.61942 ff
-input_cap , average 2.62032 ff
-static_power , vin_0 0.00330455 nw
-static_power , vin_1 0.108613 nw
-rise_dynamic_power 10 0.5 rise 1085.24 nw
-fall_dynamic_power 10 0.5 fall -146.376 nw
-rise_dynamic_power 10 10 rise 4970.88 nw
-fall_dynamic_power 10 10 fall -101.853 nw
-rise_dynamic_power 10 100 rise 41427.2 nw
-fall_dynamic_power 10 100 fall -93.7391 nw
-rise_dynamic_power 100 0.5 rise 1045.87 nw
-fall_dynamic_power 100 0.5 fall -237.156 nw
-rise_dynamic_power 100 10 rise 4934.13 nw
-fall_dynamic_power 100 10 fall -156.894 nw
-rise_dynamic_power 100 100 rise 41420.7 nw
-fall_dynamic_power 100 100 fall -102.342 nw
-rise_dynamic_power 1000 0.5 rise 1338.82 nw
-fall_dynamic_power 1000 0.5 fall -26.4945 nw
-rise_dynamic_power 1000 10 rise 5056.22 nw
-fall_dynamic_power 1000 10 fall -148.065 nw
-rise_dynamic_power 1000 100 rise 41422.1 nw
-fall_dynamic_power 1000 100 fall -137.739 nw
+rise_transition,10,0.5,rise,10.5868,ps
+fall_transition,10,0.5,fall,10.8884,ps
+cell_rise_delay,10,0.5,rise,14.3615,ps
+cell_fall_delay,10,0.5,fall,17.6329,ps
+rise_transition,10,10,rise,66.5545,ps
+fall_transition,10,10,fall,70.9345,ps
+cell_rise_delay,10,10,rise,53.4673,ps
+cell_fall_delay,10,10,fall,65.0636,ps
+rise_transition,10,100,rise,596.821,ps
+fall_transition,10,100,fall,639.877,ps
+cell_rise_delay,10,100,rise,415.315,ps
+cell_fall_delay,10,100,fall,500.894,ps
+rise_transition,100,0.5,rise,28.5953,ps
+fall_transition,100,0.5,fall,25.2315,ps
+cell_rise_delay,100,0.5,rise,37.1136,ps
+cell_fall_delay,100,0.5,fall,38.2572,ps
+rise_transition,100,10,rise,71.8503,ps
+fall_transition,100,10,fall,74.1809,ps
+cell_rise_delay,100,10,rise,91.205,ps
+cell_fall_delay,100,10,fall,97.9592,ps
+rise_transition,100,100,rise,596.821,ps
+fall_transition,100,100,fall,639.877,ps
+cell_rise_delay,100,100,rise,453.317,ps
+cell_fall_delay,100,100,fall,534.81,ps
+rise_transition,1000,0.5,rise,121.14,ps
+fall_transition,1000,0.5,fall,109.713,ps
+cell_rise_delay,1000,0.5,rise,85.3314,ps
+cell_fall_delay,1000,0.5,fall,76.1877,ps
+rise_transition,1000,10,rise,247.259,ps
+fall_transition,1000,10,fall,231.367,ps
+cell_rise_delay,1000,10,rise,268.796,ps
+cell_fall_delay,1000,10,fall,258.387,ps
+rise_transition,1000,100,rise,669.511,ps
+fall_transition,1000,100,fall,696.785,ps
+cell_rise_delay,1000,100,rise,838.199,ps
+cell_fall_delay,1000,100,fall,880.066,ps
+input_cap,,,rise,2.62121,ff
+input_cap,,,fall,2.61942,ff
+input_cap,,,average,2.62032,ff
+static_power,,,vin_0,0.0033046,nw
+static_power,,,vin_1,0.108613,nw
+rise_dynamic_power,10,0.5,rise,1071.05,nw
+fall_dynamic_power,10,0.5,fall,-167.489,nw
+rise_dynamic_power,10,10,rise,4966.29,nw
+fall_dynamic_power,10,10,fall,-107.557,nw
+rise_dynamic_power,10,100,rise,41426.3,nw
+fall_dynamic_power,10,100,fall,-94.5364,nw
+rise_dynamic_power,100,0.5,rise,1056.42,nw
+fall_dynamic_power,100,0.5,fall,-240.939,nw
+rise_dynamic_power,100,10,rise,4924.84,nw
+fall_dynamic_power,100,10,fall,-178.595,nw
+rise_dynamic_power,100,100,rise,41417.1,nw
+fall_dynamic_power,100,100,fall,-107.771,nw
+rise_dynamic_power,1000,0.5,rise,1609.86,nw
+fall_dynamic_power,1000,0.5,fall,228.076,nw
+rise_dynamic_power,1000,10,rise,5239.91,nw
+fall_dynamic_power,1000,10,fall,-27.4977,nw
+rise_dynamic_power,1000,100,rise,41472,nw
+fall_dynamic_power,1000,100,fall,-126.574,nw

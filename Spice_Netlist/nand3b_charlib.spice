@@ -1,0 +1,3 @@
+.subckt nand3b A B C VDD VSS OUT
+.include Spice_Netlist/nand3b_pex.spice
+.ends nand3b

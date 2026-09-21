@@ -33,9 +33,9 @@ let cap_rise_ff = 1e-6 * rise_dt / 1.08 * 1e15
 let cap_fall_ff = 1e-6 * fall_dt / 1.08 * 1e15
 let cap_avg_ff = (cap_rise_ff + cap_fall_ff) / 2
 
-echo input_cap,,,rise,$&cap_rise_ff,fF >> Reports/inv_characterization.csv
-echo input_cap,,,fall,$&cap_fall_ff,fF >> Reports/inv_characterization.csv
-echo input_cap,,,average,$&cap_avg_ff,fF >> Reports/inv_characterization.csv
+echo "input_cap,,,rise,$&cap_rise_ff,fF" >> Reports/inv_characterization.csv
+echo "input_cap,,,fall,$&cap_fall_ff,fF" >> Reports/inv_characterization.csv
+echo "input_cap,,,average,$&cap_avg_ff,fF" >> Reports/inv_characterization.csv
 
 print cap_rise_ff cap_fall_ff cap_avg_ff
 

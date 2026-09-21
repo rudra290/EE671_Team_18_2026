@@ -1,0 +1,37 @@
+settings:
+    lib_name: nand3b
+    results_dir: Charlib/nand3b_results
+    temperature: 27
+    logic_thresholds:
+        low: 0.2
+        high: 0.8
+        rising: 0.5
+        falling: 0.5
+    named_nodes:
+        primary_power:
+            name: VDD
+            voltage: 1.8
+        primary_ground:
+            name: VSS
+            voltage: 0
+    simulation:
+        backend: ngspice-shared
+        input_capacitance_procedure: charge_integration
+    units:
+        time: ns
+        voltage: V
+        current: uA
+        leakage_power: nW
+        capacitive_load: pF
+        energy: fJ
+
+cells:
+    nand3b:
+        netlist: Spice_Netlist/nand3b_charlib.spice
+        models: [/foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt]
+        inputs: [A, B, C]
+        outputs: [OUT]
+        functions: ["OUT=!(!A&B&C)"]
+        data_slews: [0.01, 0.1, 1.0]
+        loads: [0.0005, 0.01, 0.1]
+        area: 28.448

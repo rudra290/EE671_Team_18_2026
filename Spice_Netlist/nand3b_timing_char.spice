@@ -1,0 +1,80 @@
+* NAND3B post-layout timing characterization
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt NAND3B_PEX vdd a b c vss out
+.include Spice_Netlist/nand3b_pex.spice
+.ends NAND3B_PEX
+
+.param SLEWVAL=10p
+.param CLOADVAL=0.5f
+
+VDD vdd 0 DC 1.8
+VIN in 0 PULSE(0 1.8 2n {SLEWVAL/0.6} {SLEWVAL/0.6} 8n 24n)
+
+XDUT_A vdd in vdd vdd 0 out_a NAND3B_PEX
+XDUT_B vdd 0 in vdd 0 out_b NAND3B_PEX
+XDUT_C vdd 0 vdd in 0 out_c NAND3B_PEX
+
+CA out_a 0 {CLOADVAL}
+CB out_b 0 {CLOADVAL}
+CC out_c 0 {CLOADVAL}
+
+.control
+set noaskquit
+
+echo "input,slew_ps,load_fF,tr_ps,tf_ps,tphl_ps,tplh_ps,tp_ps" > Reports/nand3b_timing.csv
+
+foreach slew 10p 100p 1000p
+    foreach load 0.5f 10f 100f
+        alterparam SLEWVAL = $slew
+        alterparam CLOADVAL = $load
+        reset
+        tran 1p 24n
+
+        meas tran a_tr trig v(out_a) val=0.36 rise=1 targ v(out_a) val=1.44 rise=1
+        meas tran a_tf trig v(out_a) val=1.44 fall=1 targ v(out_a) val=0.36 fall=1
+        meas tran a_tphl trig v(in) val=0.9 fall=1 targ v(out_a) val=0.9 fall=1
+        meas tran a_tplh trig v(in) val=0.9 rise=1 targ v(out_a) val=0.9 rise=1
+
+        meas tran b_tr trig v(out_b) val=0.36 rise=1 targ v(out_b) val=1.44 rise=1
+        meas tran b_tf trig v(out_b) val=1.44 fall=1 targ v(out_b) val=0.36 fall=1
+        meas tran b_tphl trig v(in) val=0.9 rise=1 targ v(out_b) val=0.9 fall=1
+        meas tran b_tplh trig v(in) val=0.9 fall=1 targ v(out_b) val=0.9 rise=1
+
+        meas tran c_tr trig v(out_c) val=0.36 rise=1 targ v(out_c) val=1.44 rise=1
+        meas tran c_tf trig v(out_c) val=1.44 fall=1 targ v(out_c) val=0.36 fall=1
+        meas tran c_tphl trig v(in) val=0.9 rise=1 targ v(out_c) val=0.9 fall=1
+        meas tran c_tplh trig v(in) val=0.9 fall=1 targ v(out_c) val=0.9 rise=1
+
+        let slew_ps = $slew * 1e12
+        let load_ff = $load * 1e15
+
+        let a_tr_ps = a_tr * 1e12
+        let a_tf_ps = a_tf * 1e12
+        let a_tphl_ps = a_tphl * 1e12
+        let a_tplh_ps = a_tplh * 1e12
+        let a_tp_ps = (a_tphl_ps + a_tplh_ps) / 2
+
+        let b_tr_ps = b_tr * 1e12
+        let b_tf_ps = b_tf * 1e12
+        let b_tphl_ps = b_tphl * 1e12
+        let b_tplh_ps = b_tplh * 1e12
+        let b_tp_ps = (b_tphl_ps + b_tplh_ps) / 2
+
+        let c_tr_ps = c_tr * 1e12
+        let c_tf_ps = c_tf * 1e12
+        let c_tphl_ps = c_tphl * 1e12
+        let c_tplh_ps = c_tplh * 1e12
+        let c_tp_ps = (c_tphl_ps + c_tplh_ps) / 2
+
+        echo "A,$&slew_ps,$&load_ff,$&a_tr_ps,$&a_tf_ps,$&a_tphl_ps,$&a_tplh_ps,$&a_tp_ps" >> Reports/nand3b_timing.csv
+	echo "B,$&slew_ps,$&load_ff,$&b_tr_ps,$&b_tf_ps,$&b_tphl_ps,$&b_tplh_ps,$&b_tp_ps" >> Reports/nand3b_timing.csv
+	echo "C,$&slew_ps,$&load_ff,$&c_tr_ps,$&c_tf_ps,$&c_tphl_ps,$&c_tplh_ps,$&c_tp_ps" >> Reports/nand3b_timing.csv
+    end
+end
+
+quit
+.endc
+
+.end

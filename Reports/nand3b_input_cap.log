@@ -1,0 +1,69 @@
+Warning: m=xx on .subckt line will override multiplier m hierarchy!
+
+
+Note: Compatibility modes selected: hs a
+
+
+Circuit: * nand3b post-layout input capacitance
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vdd                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+a_rise                                       0
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+a_fall                                     1.8
+xbr.inverter_x1_1/out              1.12952e-07
+xbr.nand3_0/out                            1.8
+out_br                                     1.8
+xbr.nand3_0/a                              1.8
+b_rise                                       0
+xbf.inverter_x1_1/out                      1.8
+xbf.nand3_0/out                    3.00653e-07
+out_bf                              2.3411e-07
+xbf.nand3_0/a                              1.8
+b_fall                                     1.8
+xcr.inverter_x1_1/out              1.12952e-07
+xcr.nand3_0/out                            1.8
+out_cr                                     1.8
+c_rise                                       0
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out                      1.8
+xcf.nand3_0/out                    3.00653e-07
+out_cf                              2.3411e-07
+c_fall                                     1.8
+xcf.nand3_0/a                              1.8
+vdd#branch                        -1.32301e-09
+
+ Reference value :  0.00000e+00 Reference value :  3.13140e-10 Reference value :  6.41640e-10 Reference value :  1.03775e-09 Reference value :  1.54775e-09 Reference value :  2.07225e-09 Reference value :  2.61425e-09 Reference value :  3.15225e-09 Reference value :  3.66475e-09 Reference value :  4.19775e-09 Reference value :  4.73275e-09 Reference value :  5.25875e-09 Reference value :  5.79225e-09 Reference value :  6.32525e-09 Reference value :  6.85925e-09 Reference value :  7.39575e-09 Reference value :  7.93125e-09 Reference value :  8.46625e-09 Reference value :  8.99775e-09 Reference value :  9.53275e-09 Reference value :  1.00618e-08 Reference value :  1.05988e-08 Reference value :  1.11348e-08 Reference value :  1.16728e-08 Reference value :  1.22123e-08 Reference value :  1.27518e-08 Reference value :  1.32908e-08 Reference value :  1.38248e-08 Reference value :  1.43608e-08 Reference value :  1.48973e-08 Reference value :  1.54328e-08 Reference value :  1.59683e-08 Reference value :  1.65038e-08 Reference value :  1.70393e-08 Reference value :  1.75768e-08 Reference value :  1.81138e-08 Reference value :  1.86513e-08 Reference value :  1.91878e-08 Reference value :  1.97258e-08 Reference value :  2.02628e-08 Reference value :  2.07998e-08 Reference value :  2.13358e-08 Reference value :  2.18773e-08
+No. of Data Rows : 44020
+a_rise_dt           =  2.92773e-09 targ=  4.80834e-09 trig=  1.88061e-09
+a_fall_dt           =  2.92587e-09 targ=  4.60460e-09 trig=  1.67874e-09
+b_rise_dt           =  4.30120e-09 targ=  6.37512e-09 trig=  2.07392e-09
+b_fall_dt           =  4.17231e-09 targ=  6.26794e-09 trig=  2.09563e-09
+c_rise_dt           =  4.31610e-09 targ=  6.39670e-09 trig=  2.08059e-09
+c_fall_dt           =  4.18240e-09 targ=  6.28489e-09 trig=  2.10249e-09
+a_cap_rise_ff = 2.710863e+00
+a_cap_fall_ff = 2.709137e+00
+a_cap_avg_ff = 2.710000e+00
+b_cap_rise_ff = 3.982593e+00
+b_cap_fall_ff = 3.863249e+00
+b_cap_avg_ff = 3.922921e+00
+c_cap_rise_ff = 3.996391e+00
+c_cap_fall_ff = 3.872596e+00
+c_cap_avg_ff = 3.934494e+00
+ngspice-47 done
