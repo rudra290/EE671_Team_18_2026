@@ -16,3 +16,5 @@ pandoc temp.md --template=template.tex -o output.pdf --pdf-engine=lualatex --fil
 Files ending in layout are annotated, DRC Clean Screenshots.
 
 Screenshots with 'Masked' written on them do not show the entire layout of the cell, it shows on the instantiation and the connection of different cells to complete the entire layout. 
+
+You can see Schematic of the invx1, dfxtn, nand3b in the svg form at the same level as Layout_Screenshots in the [Schematic](./Schematic) folder.

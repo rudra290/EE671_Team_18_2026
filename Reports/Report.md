@@ -112,3 +112,15 @@ NAND3b Layout
 </div>
 
 ![NAND3b Layout](./Layout_Screenshots/nand3b_Layout.png)
+
+![invx1 Schematic](./Schematics/invx1_flat.svg)
+![dfxtn Schematic](./Schematics/dfxtn_flat.svg)
+![nand3b Schematic](./Schematics/nand3b_flat.svg)
+
+### Some of the Observation
+
+While working with the dfliflop and nand3 spice simulation. I tried to equalise rise time and falltime same as of inverter as requirement of project. This excerise I have succesfully done in the dflipflop by converting all inverter to near X2. Because it's critical path for Dflipflop and higer strength invert will support the dflipflop to minimise the rise time and fall time. 
+
+This excersise I can't able to do with NAND3. Since it have 3 different input and NMOS is in series. I tried to equalise or mimise rise time and falltime of all the path with respect to worst case delay. unfortunetly my width is constantly incresing to do so. and at some movemnt, making twiced the width gives less improvment in the time due to increase capacitance of cg and cd.
+
+That's why I think to drive it with buffer. By doing so, I can able to achieve theoritical width of nmos and pmos of nand3. And also, able to achive similar risetime and falltime in very less mos width of NAND3. This migth increase some power and the propogation delay. but yes, I succesfully satify requirement of project.
