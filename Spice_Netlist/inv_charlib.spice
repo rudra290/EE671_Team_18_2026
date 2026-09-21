@@ -1,0 +1,3 @@
+.subckt inv VIN VDD VSS VOUT
+.include Spice_Netlist/inv_pex.spice
+.ends inv

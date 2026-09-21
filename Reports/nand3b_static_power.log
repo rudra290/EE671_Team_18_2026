@@ -1,0 +1,104 @@
+Warning: m=xx on .subckt line will override multiplier m hierarchy!
+
+
+Note: Compatibility modes selected: hs a
+
+
+Circuit: * nand3b post-layout static supply power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+v000                                       1.8
+v001                                       1.8
+v010                                       1.8
+v011                                       1.8
+v100                                       1.8
+v101                                       1.8
+v110                                       1.8
+v111                                       1.8
+high                                       1.8
+x000.inverter_x1_1/out             1.12952e-07
+x000.nand3_0/out                           1.8
+out000                                     1.8
+x000.nand3_0/a                             1.8
+x001.inverter_x1_1/out             1.12952e-07
+x001.nand3_0/out                           1.8
+out001                                     1.8
+x001.nand3_0/a                             1.8
+x010.inverter_x1_1/out             1.12952e-07
+x010.nand3_0/out                           1.8
+out010                                     1.8
+x010.nand3_0/a                             1.8
+x011.inverter_x1_1/out                     1.8
+x011.nand3_0/out                   3.00653e-07
+out011                              2.3411e-07
+x011.nand3_0/a                             1.8
+x100.inverter_x1_1/out             1.12952e-07
+x100.nand3_0/out                           1.8
+out100                                     1.8
+x100.nand3_0/a                     1.12952e-07
+x101.inverter_x1_1/out             1.12952e-07
+x101.nand3_0/out                           1.8
+out101                                     1.8
+x101.nand3_0/a                     1.12952e-07
+x110.inverter_x1_1/out             1.12952e-07
+x110.nand3_0/out                           1.8
+out110                                     1.8
+x110.nand3_0/a                     1.12952e-07
+x111.inverter_x1_1/out             1.12952e-07
+x111.nand3_0/out                           1.8
+out111                                     1.8
+x111.nand3_0/a                     1.12952e-07
+p000                               1.23835e-10
+p001                               1.23936e-10
+p010                               1.28822e-10
+p011                               6.29775e-10
+p100                               2.24034e-10
+p101                               2.24035e-10
+p110                               2.24071e-10
+p111                               2.24202e-10
+bp111#branch                                 0
+vdd111#branch                     -1.24557e-10
+bp110#branch                                 0
+vdd110#branch                     -1.24484e-10
+bp101#branch                                 0
+vdd101#branch                     -1.24464e-10
+bp100#branch                                 0
+vdd100#branch                     -1.24463e-10
+bp011#branch                                 0
+vdd011#branch                     -3.49875e-10
+bp010#branch                                 0
+vdd010#branch                     -7.15676e-11
+bp001#branch                                 0
+vdd001#branch                     -6.88532e-11
+bp000#branch                                 0
+vdd000#branch                     -6.87971e-11
+vhigh#branch                                 0
+
+ Reference value :  0.00000e+00 Reference value :  4.55280e-10 Reference value :  1.24728e-09 Reference value :  2.03528e-09 Reference value :  2.82828e-09 Reference value :  3.62228e-09 Reference value :  4.41028e-09 Reference value :  5.20528e-09 Reference value :  5.98328e-09 Reference value :  6.77528e-09 Reference value :  7.55728e-09
+No. of Data Rows : 8008
+static000           =  1.23835e-10 from=  1.00000e-09 to=  8.00000e-09
+static001           =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+static010           =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+static011           =  6.29776e-10 from=  1.00000e-09 to=  8.00000e-09
+static100           =  2.24034e-10 from=  1.00000e-09 to=  8.00000e-09
+static101           =  2.24035e-10 from=  1.00000e-09 to=  8.00000e-09
+static110           =  2.24071e-10 from=  1.00000e-09 to=  8.00000e-09
+static111           =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p000_nw = 1.238353e-01
+p001_nw = 1.239359e-01
+p010_nw = 1.288222e-01
+p011_nw = 6.297758e-01
+p100_nw = 2.240343e-01
+p101_nw = 2.240352e-01
+p110_nw = 2.240707e-01
+p111_nw = 2.242023e-01
+ngspice-47 done

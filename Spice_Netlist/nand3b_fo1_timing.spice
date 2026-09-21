@@ -1,0 +1,59 @@
+* NAND3B timing with INVX1 load
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt NAND3B_PEX vdd a b c vss out
+.include Spice_Netlist/nand3b_pex.spice
+.ends NAND3B_PEX
+
+.subckt INVX1_LOAD vin vdd vss vout
+.include Spice_Netlist/inv_pex.spice
+.ends INVX1_LOAD
+
+VDD vdd 0 DC 1.8
+VIN in 0 PULSE(0 1.8 1n 20p 20p 3n 8n)
+
+XDUT_A vdd in vdd vdd 0 out_a NAND3B_PEX
+XDUT_B vdd 0 in vdd 0 out_b NAND3B_PEX
+XDUT_C vdd 0 vdd in 0 out_c NAND3B_PEX
+
+XLOAD_A out_a vdd 0 load_a INVX1_LOAD
+XLOAD_B out_b vdd 0 load_b INVX1_LOAD
+XLOAD_C out_c vdd 0 load_c INVX1_LOAD
+
+.control
+set color0=white
+set color1=black
+
+tran 1p 8n
+
+meas tran a_tr trig v(out_a) val=0.36 rise=1 targ v(out_a) val=1.44 rise=1
+meas tran a_tf trig v(out_a) val=1.44 fall=1 targ v(out_a) val=0.36 fall=1
+meas tran a_tphl trig v(in) val=0.9 fall=1 targ v(out_a) val=0.9 fall=1
+meas tran a_tplh trig v(in) val=0.9 rise=1 targ v(out_a) val=0.9 rise=1
+
+meas tran b_tr trig v(out_b) val=0.36 rise=1 targ v(out_b) val=1.44 rise=1
+meas tran b_tf trig v(out_b) val=1.44 fall=1 targ v(out_b) val=0.36 fall=1
+meas tran b_tphl trig v(in) val=0.9 rise=1 targ v(out_b) val=0.9 fall=1
+meas tran b_tplh trig v(in) val=0.9 fall=1 targ v(out_b) val=0.9 rise=1
+
+meas tran c_tr trig v(out_c) val=0.36 rise=1 targ v(out_c) val=1.44 rise=1
+meas tran c_tf trig v(out_c) val=1.44 fall=1 targ v(out_c) val=0.36 fall=1
+meas tran c_tphl trig v(in) val=0.9 rise=1 targ v(out_c) val=0.9 fall=1
+meas tran c_tplh trig v(in) val=0.9 fall=1 targ v(out_c) val=0.9 rise=1
+
+let a_tp = (a_tphl + a_tplh) / 2
+let b_tp = (b_tphl + b_tplh) / 2
+let c_tp = (c_tphl + c_tplh) / 2
+
+echo "A path: times in seconds"
+print a_tr a_tf a_tphl a_tplh a_tp
+echo "B path: times in seconds"
+print b_tr b_tf b_tphl b_tplh b_tp
+echo "C path: times in seconds"
+print c_tr c_tf c_tphl c_tplh c_tp
+
+plot v(in) v(out_a) v(out_b) v(out_c)
+.endc
+
+.end

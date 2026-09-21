@@ -1,0 +1,39 @@
+* NAND3B post-layout functional verification
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt NAND3B_PEX vdd a b c vss out
+.include Spice_Netlist/nand3b_pex.spice
+.ends NAND3B_PEX
+
+.subckt INVX1_LOAD vin vdd vss vout
+.include Spice_Netlist/inv_pex.spice
+.ends INVX1_LOAD
+
+VDD vdd 0 DC 1.8
+VA a 0 PULSE(0 1.8 4n 20p 20p 3.98n 8n)
+VB b 0 PULSE(0 1.8 2n 20p 20p 1.98n 4n)
+VC c 0 PULSE(0 1.8 1n 20p 20p 0.98n 2n)
+
+XDUT vdd a b c 0 out NAND3B_PEX
+XLOAD out vdd 0 load_out INVX1_LOAD
+
+.control
+set color0=white
+set color1=black
+
+tran 1p 8n
+
+meas tran y000 find v(out) at=0.5n
+meas tran y001 find v(out) at=1.5n
+meas tran y010 find v(out) at=2.5n
+meas tran y011 find v(out) at=3.5n
+meas tran y100 find v(out) at=4.5n
+meas tran y101 find v(out) at=5.5n
+meas tran y110 find v(out) at=6.5n
+meas tran y111 find v(out) at=7.5n
+
+plot v(a) v(b) v(c) v(out)
+.endc
+
+.end
