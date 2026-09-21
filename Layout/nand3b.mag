@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1789829129
+timestamp 1789975438
 << nwell >>
 rect 363 290 751 298
 rect 513 132 609 290
@@ -37,11 +37,11 @@ rect 135 0 162 48
 rect 550 0 566 48
 rect 700 0 752 48
 use Inverter_X1  Inverter_X1_0
-timestamp 1789667842
+timestamp 1789973293
 transform 1 0 49 0 1 48
 box -48 -48 93 272
 use Inverter_X1  Inverter_X1_1
-timestamp 1789667842
+timestamp 1789973293
 transform 1 0 611 0 1 48
 box -48 -48 93 272
 use Inverter_X1_25  Inverter_X1_25_0
@@ -49,20 +49,20 @@ timestamp 1789826335
 transform 1 0 603 0 1 1
 box 145 -1 287 319
 use NAND3  NAND3_0
-timestamp 1789826660
+timestamp 1789975123
 transform 1 0 203 0 1 77
 box -44 -77 357 243
 << labels >>
-rlabel metal1 1 0 10 48 3 vss
+flabel metal1 1 0 10 48 3 FreeSans 200 0 0 0 vss
 port 5 e
-rlabel metal1 1 272 10 320 3 vdd
+flabel metal1 1 272 10 320 3 FreeSans 200 0 0 0 vdd
 port 1 e
 rlabel locali 167 151 184 168 3 b
 port 3 e
 rlabel locali 167 100 184 117 3 c
 port 4 e
-rlabel ndiffc 847 37 864 54 3 out
+flabel ndiffc 847 37 864 54 3 FreeSans 200 0 0 0 out
 port 6 e
-rlabel locali 10 113 27 130 1 a
+flabel locali 10 113 27 130 1 FreeSans 200 0 0 0 a
 port 2 n
 << end >>
