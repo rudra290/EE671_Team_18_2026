@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1789713758
+timestamp 1789974638
 << nwell >>
 rect 141 132 142 294
 rect 1128 132 1168 229
@@ -57,34 +57,34 @@ rect 1128 0 1168 48
 rect 1309 0 1346 48
 rect 2332 0 2349 48
 use Inverter_X1  Inverter_X1_0
-timestamp 1789667842
+timestamp 1789973293
 transform 1 0 48 0 1 48
 box -48 -48 93 272
 use Inverter_X1  Inverter_X1_1
-timestamp 1789667842
+timestamp 1789973293
 transform 1 0 1216 0 1 48
 box -48 -48 93 272
 use Inverter_X2  Inverter_X2_0
-timestamp 1789710891
+timestamp 1789973525
 transform 1 0 2393 0 1 87
 box -44 -87 400 233
 use latch  latch_0
-timestamp 1789713758
+timestamp 1789974638
 transform 1 0 142 0 1 0
 box 0 0 986 320
 use latch  latch_1
-timestamp 1789713758
+timestamp 1789974638
 transform 1 0 1346 0 1 0
 box 0 0 986 320
 << labels >>
-rlabel locali 0 108 6 135 7 D
+flabel locali 0 108 6 135 7 FreeSans 400 0 0 0 D
 port 1 w
-rlabel metal1 0 272 7 320 7 vdd
+flabel metal1 0 272 7 320 7 FreeSans 400 0 0 0 vdd
 port 3 w
-rlabel metal1 0 0 7 48 7 vss
+flabel metal1 0 0 7 48 7 FreeSans 400 0 0 0 vss
 port 4 w
-rlabel locali 2760 108 2793 135 3 Q
+flabel locali 2760 108 2793 135 3 FreeSans 400 0 0 0 Q
 port 5 e
-rlabel viali 1177 113 1194 130 1 CLK
+flabel viali 1177 113 1194 130 1 FreeSans 400 0 0 0 CLK
 port 2 n
 << end >>
