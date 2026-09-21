@@ -30,8 +30,8 @@ echo "--------------------------------------------------------"
 print t_r t_f t_phl t_plh tp
 echo "--------------------------------------------------------"
 
-meas tran t_in_50 when V(in)=0.9 fall=1
-meas tran t_out_50 when V(out1)=0.9 rise=1
+meas tran t_in_50 when V(in)=0.9 rise=1
+meas tran t_out_50 when V(out1)=0.9 fall=1
 let marker_in_50 = (time >= t_in_50) * 1.8
 let marker_out_50 = (time >= t_out_50) * 1.8
 
