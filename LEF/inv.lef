@@ -1,0 +1,58 @@
+MACRO inv
+  CLASS BLOCK ;
+  FOREIGN inv ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 1.670 BY 3.200 ;
+  PIN vin
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.252000 ;
+    PORT
+      LAYER li1 ;
+        RECT 0.790 1.035 0.960 1.365 ;
+    END
+  END vin
+  PIN Vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER nwell ;
+        RECT 0.100 1.340 1.560 2.960 ;
+      LAYER li1 ;
+        RECT 0.005 2.875 1.670 3.045 ;
+        RECT 0.700 2.575 0.870 2.875 ;
+        RECT 0.280 2.405 0.870 2.575 ;
+        RECT 0.700 2.235 0.870 2.405 ;
+        RECT 0.280 2.065 0.870 2.235 ;
+        RECT 0.700 1.895 0.870 2.065 ;
+        RECT 0.280 1.725 0.870 1.895 ;
+        RECT 0.700 1.645 0.870 1.725 ;
+      LAYER met1 ;
+        RECT 0.000 2.720 1.670 3.200 ;
+    END
+  END Vdd
+  PIN Vss
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER li1 ;
+        RECT 0.700 0.770 0.870 0.850 ;
+        RECT 0.280 0.600 0.870 0.770 ;
+        RECT 0.700 0.325 0.870 0.600 ;
+        RECT 0.005 0.155 1.670 0.325 ;
+      LAYER met1 ;
+        RECT 0.000 0.000 1.670 0.480 ;
+    END
+  END Vss
+  PIN vout
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.504000 ;
+    PORT
+      LAYER li1 ;
+        RECT 1.130 0.520 1.300 2.655 ;
+    END
+  END vout
+END inv
+END LIBRARY
+

@@ -1,0 +1,36 @@
+* Post-layout inverter with identical INVX1 load
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt InvX1_PEX vin Vdd Vss vout
+.include Spice_Netlist/inv_pex.spice
+.ends InvX1_PEX
+
+VDD vdd 0 DC 1.8
+VIN in  0 PULSE(0 1.8 500p 20p 20p 1n 2n)
+
+XINV1 in   vdd 0 out1 InvX1_PEX
+XINV2 out1 vdd 0 out2 InvX1_PEX
+
+.control
+set color0=white
+set color1=black
+
+tran 1p 4n
+
+* Output transition times: 20%-80%
+meas tran t_r trig V(out1) val='0.2*1.8' rise=1 targ V(out1) val='0.8*1.8' rise=1
+meas tran t_f trig V(out1) val='0.8*1.8' fall=1 targ V(out1) val='0.2*1.8' fall=1
+meas tran t_phl trig V(in) val='0.5*1.8' rise=1 targ V(out1) val='0.5*1.8' fall=1
+meas tran t_plh trig V(in) val='0.5*1.8' fall=1 targ V(out1) val='0.5*1.8' rise=1
+
+let tp = (t_phl + t_plh) / 2
+
+echo "--------------------------------------------------------"
+print t_r t_f t_phl t_plh tp
+echo "--------------------------------------------------------"
+
+plot v(in) v(out1) v(out2)
+.endc
+
+.end

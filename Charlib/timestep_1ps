@@ -1,0 +1,230 @@
+library (nand3b){
+  technology : cmos ;
+  delay_model : table_lookup ;
+  bus_naming_style : "%s-%d" ;
+  time_unit : "1ns" ;
+  voltage_unit : "1V" ;
+  leakage_power_unit : "1nW" ;
+  current_unit : "1uA" ;
+  pulling_resistance_unit : "1uA" ;
+  capacitive_load_unit (1, pF);
+  nom_process : 1.00 ;
+  nom_voltage : 1.80 ;
+  nom_temperature : 27 ;
+  slew_upper_threshold_pct_rise : 0.80 ;
+  slew_lower_threshold_pct_rise : 0.20 ;
+  slew_upper_threshold_pct_fall : 0.80 ;
+  slew_lower_threshold_pct_fall : 0.20 ;
+  input_threshold_pct_rise : 0.50 ;
+  input_threshold_pct_fall : 0.50 ;
+  output_threshold_pct_rise : 0.50 ;
+  output_threshold_pct_fall : 0.50 ;
+  operating_conditions (typical) {
+    process : 1.00 ;
+    voltage : 1.80 ;
+    temperature : 27 ;
+  } /* end operating_conditions */
+  lu_table_template (delay_template_3x3) {
+    variable_1 : total_output_net_capacitance ;
+    variable_2 : input_net_transition ;
+    index_1 ("1.0, 2.0, 3.0");
+    index_2 ("1.0, 2.0, 3.0");
+  } /* end lu_table_template */
+  cell (nand3b) {
+    area : 28.45 ;
+    pin (A) {
+      direction : input ;
+      rise_capacitance : 0.002184 ;
+      fall_capacitance : 0.002151 ;
+      capacitance : 0.002184 ;
+    } /* end pin */
+    pin (B) {
+      direction : input ;
+      rise_capacitance : 0.002581 ;
+      fall_capacitance : 0.002432 ;
+      capacitance : 0.002581 ;
+    } /* end pin */
+    pin (C) {
+      direction : input ;
+      rise_capacitance : 0.003134 ;
+      fall_capacitance : 0.003103 ;
+      capacitance : 0.003134 ;
+    } /* end pin */
+    pg_pin (VDD) {
+      voltage_name : VDD ;
+      pg_type : primary_power ;
+    } /* end pg_pin */
+    pg_pin (VSS) {
+      voltage_name : VSS ;
+      pg_type : primary_ground ;
+    } /* end pg_pin */
+    pin (OUT) {
+      direction : output ;
+      function : "OUT = !(!A&B&C)" ;
+      timing () {
+        related_pin : A ;
+        timing_type : combinational_fall ;
+        cell_fall (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.118146, 0.153153, 0.279094" \
+            "0.158354, 0.193360, 0.319360" \
+            "0.495106, 0.530116, 0.656231" \
+          ) ;
+        } /* end cell_fall */
+        fall_transition (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.013555, 0.013558, 0.013709" \
+            "0.057721, 0.057723, 0.057815" \
+            "0.494739, 0.494739, 0.494740" \
+          ) ;
+        } /* end fall_transition */
+      } /* end timing */
+      timing () {
+        related_pin : A ;
+        timing_type : combinational_rise ;
+        cell_rise (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.135444, 0.166912, 0.293828" \
+            "0.168609, 0.200076, 0.327064" \
+            "0.448433, 0.479901, 0.606928" \
+          ) ;
+        } /* end cell_rise */
+        rise_transition (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.014419, 0.014429, 0.014656" \
+            "0.054282, 0.054282, 0.054346" \
+            "0.464547, 0.464547, 0.464547" \
+          ) ;
+        } /* end rise_transition */
+      } /* end timing */
+      timing () {
+        related_pin : B ;
+        timing_type : combinational_rise ;
+        rise_transition (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.014486, 0.014501, 0.017205" \
+            "0.054303, 0.054308, 0.055149" \
+            "0.464548, 0.464548, 0.464561" \
+          ) ;
+        } /* end rise_transition */
+        cell_rise (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.105330, 0.141341, 0.338765" \
+            "0.138517, 0.174526, 0.373225" \
+            "0.418356, 0.454371, 0.653275" \
+          ) ;
+        } /* end cell_rise */
+      } /* end timing */
+      timing () {
+        related_pin : B ;
+        timing_type : combinational_fall ;
+        cell_fall (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.093796, 0.117637, 0.182626" \
+            "0.133999, 0.157848, 0.223937" \
+            "0.470746, 0.494639, 0.561334" \
+          ) ;
+        } /* end cell_fall */
+        fall_transition (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.013552, 0.013606, 0.015459" \
+            "0.057718, 0.057736, 0.058675" \
+            "0.494738, 0.494738, 0.494749" \
+          ) ;
+        } /* end fall_transition */
+      } /* end timing */
+      timing () {
+        related_pin : C ;
+        timing_type : combinational_rise ;
+        cell_rise (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.115176, 0.151792, 0.371846" \
+            "0.148417, 0.185033, 0.406175" \
+            "0.428275, 0.464894, 0.686216" \
+          ) ;
+        } /* end cell_rise */
+        rise_transition (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.014625, 0.014642, 0.016966" \
+            "0.054344, 0.054345, 0.055072" \
+            "0.464550, 0.464550, 0.464562" \
+          ) ;
+        } /* end rise_transition */
+      } /* end timing */
+      timing () {
+        related_pin : C ;
+        timing_type : combinational_fall ;
+        fall_transition (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.013555, 0.013581, 0.015442" \
+            "0.057716, 0.057728, 0.058689" \
+            "0.494738, 0.494738, 0.494750" \
+          ) ;
+        } /* end fall_transition */
+        cell_fall (delay_template_3x3) {
+          index_1 ("0.000500, 0.010000, 0.100000") ;
+          index_2 ("0.010000, 0.100000, 1.000000") ;
+          values ( \
+            "0.097587, 0.119759, 0.180517" \
+            "0.137792, 0.159965, 0.221866" \
+            "0.474539, 0.496738, 0.559262" \
+          ) ;
+        } /* end cell_fall */
+      } /* end timing */
+    } /* end pin */
+    leakage_power () {
+      when : "!A & !B & !C" ;
+      value : 0.123835 ;
+    } /* end leakage_power */
+    leakage_power () {
+      when : "!A & !B & C" ;
+      value : 0.123936 ;
+    } /* end leakage_power */
+    leakage_power () {
+      when : "!A & B & !C" ;
+      value : 0.128821 ;
+    } /* end leakage_power */
+    leakage_power () {
+      when : "!A & B & C" ;
+      value : 0.629775 ;
+    } /* end leakage_power */
+    leakage_power () {
+      when : "A & B & !C" ;
+      value : 0.224071 ;
+    } /* end leakage_power */
+    leakage_power () {
+      when : "A & !B & !C" ;
+      value : 0.224034 ;
+    } /* end leakage_power */
+    leakage_power () {
+      when : "A & B & C" ;
+      value : 0.224202 ;
+    } /* end leakage_power */
+    leakage_power () {
+      when : "A & !B & C" ;
+      value : 0.224035 ;
+    } /* end leakage_power */
+  } /* end cell */
+} /* end library */

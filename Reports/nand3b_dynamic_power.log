@@ -1,0 +1,1198 @@
+Warning: m=xx on .subckt line will override multiplier m hierarchy!
+
+
+Note: Compatibility modes selected: hs a
+
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Reset re-loads circuit * nand3b post-layout vdd switching power
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+high                                       1.8
+s011                                       1.8
+s111                                       1.8
+s001                                       1.8
+s010                                       1.8
+xs011.inverter_x1_1/out                    1.8
+xs011.nand3_0/out                  3.00653e-07
+os011                               2.3411e-07
+xs011.nand3_0/a                            1.8
+xs111.inverter_x1_1/out            1.12952e-07
+xs111.nand3_0/out                          1.8
+os111                                      1.8
+xs111.nand3_0/a                    1.12952e-07
+xs001.inverter_x1_1/out            1.12952e-07
+xs001.nand3_0/out                          1.8
+os001                                      1.8
+xs001.nand3_0/a                            1.8
+xs010.inverter_x1_1/out            1.12952e-07
+xs010.nand3_0/out                          1.8
+os010                                      1.8
+xs010.nand3_0/a                            1.8
+ps011                              6.29775e-10
+ps111                              2.24202e-10
+ps001                              1.23936e-10
+ps010                              1.28822e-10
+up                                           0
+down                                       1.8
+var                                        1.8
+vaf                                        1.8
+vbr                                        1.8
+vbf                                        1.8
+vcr                                        1.8
+vcf                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+xbr.inverter_x1_1/out                      1.8
+xbr.nand3_0/out                    3.00653e-07
+out_br                              2.3411e-07
+xbr.nand3_0/a                              1.8
+xbf.inverter_x1_1/out              1.12952e-07
+xbf.nand3_0/out                            1.8
+out_bf                                     1.8
+xbf.nand3_0/a                              1.8
+xcr.inverter_x1_1/out                      1.8
+xcr.nand3_0/out                    3.00653e-07
+out_cr                              2.3411e-07
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out              1.12952e-07
+xcf.nand3_0/out                            1.8
+out_cf                                     1.8
+xcf.nand3_0/a                              1.8
+par                                6.29775e-10
+paf                                2.24202e-10
+pbr                                6.29775e-10
+pbf                                1.23936e-10
+pcr                                6.29775e-10
+pcf                                1.28822e-10
+bpcf#branch                                  0
+vddcf#branch                      -7.15676e-11
+bpcr#branch                                  0
+vddcr#branch                      -3.49875e-10
+bpbf#branch                                  0
+vddbf#branch                      -6.88534e-11
+bpbr#branch                                  0
+vddbr#branch                      -3.49875e-10
+bpaf#branch                                  0
+vddaf#branch                      -1.24557e-10
+bpar#branch                                  0
+vddar#branch                      -3.49875e-10
+bps010#branch                                0
+vs010#branch                      -7.15675e-11
+bps001#branch                                0
+vs001#branch                      -6.88533e-11
+bps111#branch                                0
+vs111#branch                      -1.24557e-10
+bps011#branch                                0
+vs011#branch                      -3.49875e-10
+vdown#branch                                 0
+vup#branch                                   0
+vhigh#branch                                 0
+
+ Reference value :  0.00000e+00 Reference value :  1.21640e-10 Reference value :  2.44140e-10 Reference value :  4.72140e-10 Reference value :  7.43640e-10 Reference value :  1.01664e-09 Reference value :  1.29014e-09 Reference value :  1.56114e-09 Reference value :  1.83364e-09 Reference value :  2.09742e-09 Reference value :  2.36242e-09 Reference value :  2.62892e-09 Reference value :  2.90142e-09 Reference value :  3.17292e-09 Reference value :  3.44342e-09 Reference value :  3.70942e-09 Reference value :  3.98242e-09 Reference value :  4.25542e-09 Reference value :  4.52642e-09 Reference value :  4.79842e-09 Reference value :  5.07042e-09 Reference value :  5.34342e-09 Reference value :  5.61592e-09 Reference value :  5.88692e-09 Reference value :  6.15642e-09 Reference value :  6.42492e-09 Reference value :  6.69392e-09 Reference value :  6.96292e-09 Reference value :  7.24892e-09 Reference value :  7.53842e-09 Reference value :  7.83392e-09
+No. of Data Rows : 16014
+p011                =  6.29775e-10 from=  1.00000e-09 to=  8.00000e-09
+p111                =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p001                =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+p010                =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+e_ar                =  2.70195e-14 from=  0.00000e+00 to=  8.00000e-09
+e_af                =  3.53667e-14 from=  0.00000e+00 to=  8.00000e-09
+e_br                =  3.02996e-14 from=  0.00000e+00 to=  8.00000e-09
+e_bf                =  2.04818e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cr                =  3.52013e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cf                =  2.06891e-14 from=  0.00000e+00 to=  8.00000e-09
+final_ar            =  1.80000e+00
+final_af            =  2.34110e-07
+final_br            =  1.80000e+00
+final_bf            =  2.34110e-07
+final_cr            =  1.80000e+00
+final_cf            =  2.34110e-07
+Slew=10p Load=0.5f
+ar_nw = 3.377105e+03
+af_nw = 4.420311e+03
+br_nw = 3.787197e+03
+bf_nw = 2.559721e+03
+cr_nw = 4.399902e+03
+cf_nw = 2.585630e+03
+final_ar = 1.800000e+00
+final_af = 2.341101e-07
+final_br = 1.800000e+00
+final_bf = 2.341101e-07
+final_cr = 1.800000e+00
+final_cf = 2.341101e-07
+Reset re-loads circuit * nand3b post-layout vdd switching power
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+high                                       1.8
+s011                                       1.8
+s111                                       1.8
+s001                                       1.8
+s010                                       1.8
+xs011.inverter_x1_1/out                    1.8
+xs011.nand3_0/out                  3.00653e-07
+os011                               2.3411e-07
+xs011.nand3_0/a                            1.8
+xs111.inverter_x1_1/out            1.12952e-07
+xs111.nand3_0/out                          1.8
+os111                                      1.8
+xs111.nand3_0/a                    1.12952e-07
+xs001.inverter_x1_1/out            1.12952e-07
+xs001.nand3_0/out                          1.8
+os001                                      1.8
+xs001.nand3_0/a                            1.8
+xs010.inverter_x1_1/out            1.12952e-07
+xs010.nand3_0/out                          1.8
+os010                                      1.8
+xs010.nand3_0/a                            1.8
+ps011                              6.29775e-10
+ps111                              2.24202e-10
+ps001                              1.23936e-10
+ps010                              1.28822e-10
+up                                           0
+down                                       1.8
+var                                        1.8
+vaf                                        1.8
+vbr                                        1.8
+vbf                                        1.8
+vcr                                        1.8
+vcf                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+xbr.inverter_x1_1/out                      1.8
+xbr.nand3_0/out                    3.00653e-07
+out_br                              2.3411e-07
+xbr.nand3_0/a                              1.8
+xbf.inverter_x1_1/out              1.12952e-07
+xbf.nand3_0/out                            1.8
+out_bf                                     1.8
+xbf.nand3_0/a                              1.8
+xcr.inverter_x1_1/out                      1.8
+xcr.nand3_0/out                    3.00653e-07
+out_cr                              2.3411e-07
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out              1.12952e-07
+xcf.nand3_0/out                            1.8
+out_cf                                     1.8
+xcf.nand3_0/a                              1.8
+par                                6.29775e-10
+paf                                2.24202e-10
+pbr                                6.29775e-10
+pbf                                1.23936e-10
+pcr                                6.29775e-10
+pcf                                1.28822e-10
+bpcf#branch                                  0
+vddcf#branch                      -7.15676e-11
+bpcr#branch                                  0
+vddcr#branch                      -3.49875e-10
+bpbf#branch                                  0
+vddbf#branch                      -6.88534e-11
+bpbr#branch                                  0
+vddbr#branch                      -3.49875e-10
+bpaf#branch                                  0
+vddaf#branch                      -1.24557e-10
+bpar#branch                                  0
+vddar#branch                      -3.49875e-10
+bps010#branch                                0
+vs010#branch                      -7.15675e-11
+bps001#branch                                0
+vs001#branch                      -6.88533e-11
+bps111#branch                                0
+vs111#branch                      -1.24557e-10
+bps011#branch                                0
+vs011#branch                      -3.49875e-10
+vdown#branch                                 0
+vup#branch                                   0
+vhigh#branch                                 0
+
+ Reference value :  1.60000e-13 Reference value :  2.70640e-10 Reference value :  5.56140e-10 Reference value :  8.52640e-10 Reference value :  1.12314e-09 Reference value :  1.39514e-09 Reference value :  1.66664e-09 Reference value :  1.94014e-09 Reference value :  2.20542e-09 Reference value :  2.47842e-09 Reference value :  2.75142e-09 Reference value :  3.02442e-09 Reference value :  3.29792e-09 Reference value :  3.56542e-09 Reference value :  3.83792e-09 Reference value :  4.11192e-09 Reference value :  4.38742e-09 Reference value :  4.66242e-09 Reference value :  4.93542e-09 Reference value :  5.21142e-09 Reference value :  5.48592e-09 Reference value :  5.75992e-09 Reference value :  6.03142e-09 Reference value :  6.30392e-09 Reference value :  6.57542e-09 Reference value :  6.84892e-09 Reference value :  7.12542e-09 Reference value :  7.40042e-09 Reference value :  7.67442e-09 Reference value :  7.94992e-09
+No. of Data Rows : 16014
+p011                =  6.29775e-10 from=  1.00000e-09 to=  8.00000e-09
+p111                =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p001                =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+p010                =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+e_ar                =  5.83037e-14 from=  0.00000e+00 to=  8.00000e-09
+e_af                =  3.61657e-14 from=  0.00000e+00 to=  8.00000e-09
+e_br                =  6.15788e-14 from=  0.00000e+00 to=  8.00000e-09
+e_bf                =  2.12914e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cr                =  6.64609e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cf                =  2.15063e-14 from=  0.00000e+00 to=  8.00000e-09
+final_ar            =  1.80000e+00
+final_af            =  2.34110e-07
+final_br            =  1.80000e+00
+final_bf            =  2.34110e-07
+final_cr            =  1.80000e+00
+final_cf            =  2.34110e-07
+Slew=10p Load=10f
+ar_nw = 7.287640e+03
+af_nw = 4.520182e+03
+br_nw = 7.697103e+03
+bf_nw = 2.660918e+03
+cr_nw = 8.307363e+03
+cf_nw = 2.687786e+03
+final_ar = 1.800000e+00
+final_af = 2.341101e-07
+final_br = 1.800000e+00
+final_bf = 2.341101e-07
+final_cr = 1.800000e+00
+final_cf = 2.341101e-07
+Reset re-loads circuit * nand3b post-layout vdd switching power
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+high                                       1.8
+s011                                       1.8
+s111                                       1.8
+s001                                       1.8
+s010                                       1.8
+xs011.inverter_x1_1/out                    1.8
+xs011.nand3_0/out                  3.00653e-07
+os011                               2.3411e-07
+xs011.nand3_0/a                            1.8
+xs111.inverter_x1_1/out            1.12952e-07
+xs111.nand3_0/out                          1.8
+os111                                      1.8
+xs111.nand3_0/a                    1.12952e-07
+xs001.inverter_x1_1/out            1.12952e-07
+xs001.nand3_0/out                          1.8
+os001                                      1.8
+xs001.nand3_0/a                            1.8
+xs010.inverter_x1_1/out            1.12952e-07
+xs010.nand3_0/out                          1.8
+os010                                      1.8
+xs010.nand3_0/a                            1.8
+ps011                              6.29775e-10
+ps111                              2.24202e-10
+ps001                              1.23936e-10
+ps010                              1.28822e-10
+up                                           0
+down                                       1.8
+var                                        1.8
+vaf                                        1.8
+vbr                                        1.8
+vbf                                        1.8
+vcr                                        1.8
+vcf                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+xbr.inverter_x1_1/out                      1.8
+xbr.nand3_0/out                    3.00653e-07
+out_br                              2.3411e-07
+xbr.nand3_0/a                              1.8
+xbf.inverter_x1_1/out              1.12952e-07
+xbf.nand3_0/out                            1.8
+out_bf                                     1.8
+xbf.nand3_0/a                              1.8
+xcr.inverter_x1_1/out                      1.8
+xcr.nand3_0/out                    3.00653e-07
+out_cr                              2.3411e-07
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out              1.12952e-07
+xcf.nand3_0/out                            1.8
+out_cf                                     1.8
+xcf.nand3_0/a                              1.8
+par                                6.29775e-10
+paf                                2.24202e-10
+pbr                                6.29775e-10
+pbf                                1.23936e-10
+pcr                                6.29775e-10
+pcf                                1.28822e-10
+bpcf#branch                                  0
+vddcf#branch                      -7.15676e-11
+bpcr#branch                                  0
+vddcr#branch                      -3.49875e-10
+bpbf#branch                                  0
+vddbf#branch                      -6.88534e-11
+bpbr#branch                                  0
+vddbr#branch                      -3.49875e-10
+bpaf#branch                                  0
+vddaf#branch                      -1.24557e-10
+bpar#branch                                  0
+vddar#branch                      -3.49875e-10
+bps010#branch                                0
+vs010#branch                      -7.15675e-11
+bps001#branch                                0
+vs001#branch                      -6.88533e-11
+bps111#branch                                0
+vs111#branch                      -1.24557e-10
+bps011#branch                                0
+vs011#branch                      -3.49875e-10
+vdown#branch                                 0
+vup#branch                                   0
+vhigh#branch                                 0
+
+ Reference value :  8.81400e-11 Reference value :  3.54140e-10 Reference value :  6.21140e-10 Reference value :  8.92140e-10 Reference value :  1.15964e-09 Reference value :  1.42864e-09 Reference value :  1.69964e-09 Reference value :  1.97064e-09 Reference value :  2.22592e-09 Reference value :  2.49142e-09 Reference value :  2.76142e-09 Reference value :  3.02992e-09 Reference value :  3.29942e-09 Reference value :  3.56792e-09 Reference value :  3.83342e-09 Reference value :  4.09892e-09 Reference value :  4.36542e-09 Reference value :  4.63192e-09 Reference value :  4.89742e-09 Reference value :  5.16442e-09 Reference value :  5.43142e-09 Reference value :  5.70892e-09 Reference value :  6.00092e-09 Reference value :  6.29892e-09 Reference value :  6.59642e-09 Reference value :  6.89342e-09 Reference value :  7.18192e-09 Reference value :  7.46792e-09 Reference value :  7.75392e-09 Reference value :  7.96042e-09
+No. of Data Rows : 16014
+p011                =  6.29775e-10 from=  1.00000e-09 to=  8.00000e-09
+p111                =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p001                =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+p010                =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+e_ar                =  3.50195e-13 from=  0.00000e+00 to=  8.00000e-09
+e_af                =  3.65395e-14 from=  0.00000e+00 to=  8.00000e-09
+e_br                =  3.53480e-13 from=  0.00000e+00 to=  8.00000e-09
+e_bf                =  2.16584e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cr                =  3.58373e-13 from=  0.00000e+00 to=  8.00000e-09
+e_cf                =  2.18744e-14 from=  0.00000e+00 to=  8.00000e-09
+final_ar            =  1.80000e+00
+final_af            =  2.34110e-07
+final_br            =  1.80000e+00
+final_bf            =  2.34110e-07
+final_cr            =  1.80000e+00
+final_cf            =  2.34110e-07
+Slew=10p Load=100f
+ar_nw = 4.377405e+04
+af_nw = 4.566908e+03
+br_nw = 4.418475e+04
+bf_nw = 2.706793e+03
+cr_nw = 4.479632e+04
+cf_nw = 2.733800e+03
+final_ar = 1.800000e+00
+final_af = 2.341101e-07
+final_br = 1.800000e+00
+final_bf = 2.341101e-07
+final_cr = 1.800000e+00
+final_cf = 2.341101e-07
+Reset re-loads circuit * nand3b post-layout vdd switching power
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+high                                       1.8
+s011                                       1.8
+s111                                       1.8
+s001                                       1.8
+s010                                       1.8
+xs011.inverter_x1_1/out                    1.8
+xs011.nand3_0/out                  3.00653e-07
+os011                               2.3411e-07
+xs011.nand3_0/a                            1.8
+xs111.inverter_x1_1/out            1.12952e-07
+xs111.nand3_0/out                          1.8
+os111                                      1.8
+xs111.nand3_0/a                    1.12952e-07
+xs001.inverter_x1_1/out            1.12952e-07
+xs001.nand3_0/out                          1.8
+os001                                      1.8
+xs001.nand3_0/a                            1.8
+xs010.inverter_x1_1/out            1.12952e-07
+xs010.nand3_0/out                          1.8
+os010                                      1.8
+xs010.nand3_0/a                            1.8
+ps011                              6.29775e-10
+ps111                              2.24202e-10
+ps001                              1.23936e-10
+ps010                              1.28822e-10
+up                                           0
+down                                       1.8
+var                                        1.8
+vaf                                        1.8
+vbr                                        1.8
+vbf                                        1.8
+vcr                                        1.8
+vcf                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+xbr.inverter_x1_1/out                      1.8
+xbr.nand3_0/out                    3.00653e-07
+out_br                              2.3411e-07
+xbr.nand3_0/a                              1.8
+xbf.inverter_x1_1/out              1.12952e-07
+xbf.nand3_0/out                            1.8
+out_bf                                     1.8
+xbf.nand3_0/a                              1.8
+xcr.inverter_x1_1/out                      1.8
+xcr.nand3_0/out                    3.00653e-07
+out_cr                              2.3411e-07
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out              1.12952e-07
+xcf.nand3_0/out                            1.8
+out_cf                                     1.8
+xcf.nand3_0/a                              1.8
+par                                6.29775e-10
+paf                                2.24202e-10
+pbr                                6.29775e-10
+pbf                                1.23936e-10
+pcr                                6.29775e-10
+pcf                                1.28822e-10
+bpcf#branch                                  0
+vddcf#branch                      -7.15676e-11
+bpcr#branch                                  0
+vddcr#branch                      -3.49875e-10
+bpbf#branch                                  0
+vddbf#branch                      -6.88534e-11
+bpbr#branch                                  0
+vddbr#branch                      -3.49875e-10
+bpaf#branch                                  0
+vddaf#branch                      -1.24557e-10
+bpar#branch                                  0
+vddar#branch                      -3.49875e-10
+bps010#branch                                0
+vs010#branch                      -7.15675e-11
+bps001#branch                                0
+vs001#branch                      -6.88533e-11
+bps111#branch                                0
+vs111#branch                      -1.24557e-10
+bps011#branch                                0
+vs011#branch                      -3.49875e-10
+vdown#branch                                 0
+vup#branch                                   0
+vhigh#branch                                 0
+
+ Reference value :  3.06400e-11 Reference value :  3.18640e-10 Reference value :  6.15640e-10 Reference value :  9.13640e-10 Reference value :  1.21214e-09 Reference value :  1.50814e-09 Reference value :  1.80614e-09 Reference value :  2.10275e-09 Reference value :  2.39742e-09 Reference value :  2.69442e-09 Reference value :  2.98442e-09 Reference value :  3.27042e-09 Reference value :  3.55642e-09 Reference value :  3.83842e-09 Reference value :  4.00742e-09 Reference value :  4.28792e-09 Reference value :  4.56742e-09 Reference value :  4.84742e-09 Reference value :  5.12742e-09 Reference value :  5.27692e-09 Reference value :  5.52042e-09 Reference value :  5.74992e-09 Reference value :  5.91542e-09 Reference value :  6.20242e-09 Reference value :  6.48942e-09 Reference value :  6.77442e-09 Reference value :  7.06042e-09 Reference value :  7.34692e-09 Reference value :  7.63492e-09 Reference value :  7.92392e-09
+No. of Data Rows : 16014
+p011                =  6.29775e-10 from=  1.00000e-09 to=  8.00000e-09
+p111                =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p001                =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+p010                =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+e_ar                =  2.59911e-14 from=  0.00000e+00 to=  8.00000e-09
+e_af                =  3.46395e-14 from=  0.00000e+00 to=  8.00000e-09
+e_br                =  2.92130e-14 from=  0.00000e+00 to=  8.00000e-09
+e_bf                =  1.96407e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cr                =  3.44248e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cf                =  1.98799e-14 from=  0.00000e+00 to=  8.00000e-09
+final_ar            =  1.80000e+00
+final_af            =  2.34110e-07
+final_br            =  1.80000e+00
+final_bf            =  2.34110e-07
+final_cr            =  1.80000e+00
+final_cf            =  2.34110e-07
+Slew=100p Load=0.5f
+ar_nw = 3.248558e+03
+af_nw = 4.329411e+03
+br_nw = 3.651368e+03
+bf_nw = 2.454588e+03
+cr_nw = 4.302842e+03
+cf_nw = 2.484483e+03
+final_ar = 1.800000e+00
+final_af = 2.341101e-07
+final_br = 1.800000e+00
+final_bf = 2.341101e-07
+final_cr = 1.800000e+00
+final_cf = 2.341101e-07
+Reset re-loads circuit * nand3b post-layout vdd switching power
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+high                                       1.8
+s011                                       1.8
+s111                                       1.8
+s001                                       1.8
+s010                                       1.8
+xs011.inverter_x1_1/out                    1.8
+xs011.nand3_0/out                  3.00653e-07
+os011                               2.3411e-07
+xs011.nand3_0/a                            1.8
+xs111.inverter_x1_1/out            1.12952e-07
+xs111.nand3_0/out                          1.8
+os111                                      1.8
+xs111.nand3_0/a                    1.12952e-07
+xs001.inverter_x1_1/out            1.12952e-07
+xs001.nand3_0/out                          1.8
+os001                                      1.8
+xs001.nand3_0/a                            1.8
+xs010.inverter_x1_1/out            1.12952e-07
+xs010.nand3_0/out                          1.8
+os010                                      1.8
+xs010.nand3_0/a                            1.8
+ps011                              6.29775e-10
+ps111                              2.24202e-10
+ps001                              1.23936e-10
+ps010                              1.28822e-10
+up                                           0
+down                                       1.8
+var                                        1.8
+vaf                                        1.8
+vbr                                        1.8
+vbf                                        1.8
+vcr                                        1.8
+vcf                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+xbr.inverter_x1_1/out                      1.8
+xbr.nand3_0/out                    3.00653e-07
+out_br                              2.3411e-07
+xbr.nand3_0/a                              1.8
+xbf.inverter_x1_1/out              1.12952e-07
+xbf.nand3_0/out                            1.8
+out_bf                                     1.8
+xbf.nand3_0/a                              1.8
+xcr.inverter_x1_1/out                      1.8
+xcr.nand3_0/out                    3.00653e-07
+out_cr                              2.3411e-07
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out              1.12952e-07
+xcf.nand3_0/out                            1.8
+out_cf                                     1.8
+xcf.nand3_0/a                              1.8
+par                                6.29775e-10
+paf                                2.24202e-10
+pbr                                6.29775e-10
+pbf                                1.23936e-10
+pcr                                6.29775e-10
+pcf                                1.28822e-10
+bpcf#branch                                  0
+vddcf#branch                      -7.15676e-11
+bpcr#branch                                  0
+vddcr#branch                      -3.49875e-10
+bpbf#branch                                  0
+vddbf#branch                      -6.88534e-11
+bpbr#branch                                  0
+vddbr#branch                      -3.49875e-10
+bpaf#branch                                  0
+vddaf#branch                      -1.24557e-10
+bpar#branch                                  0
+vddar#branch                      -3.49875e-10
+bps010#branch                                0
+vs010#branch                      -7.15675e-11
+bps001#branch                                0
+vs001#branch                      -6.88533e-11
+bps111#branch                                0
+vs111#branch                      -1.24557e-10
+bps011#branch                                0
+vs011#branch                      -3.49875e-10
+vdown#branch                                 0
+vup#branch                                   0
+vhigh#branch                                 0
+
+ Reference value :  7.41400e-11 Reference value :  3.62140e-10 Reference value :  6.50140e-10 Reference value :  9.37640e-10 Reference value :  1.22614e-09 Reference value :  1.51464e-09 Reference value :  1.80064e-09 Reference value :  2.08625e-09 Reference value :  2.37392e-09 Reference value :  2.67292e-09 Reference value :  2.95792e-09 Reference value :  3.16842e-09 Reference value :  3.46592e-09 Reference value :  3.76342e-09 Reference value :  4.06092e-09 Reference value :  4.35742e-09 Reference value :  4.65492e-09 Reference value :  4.95292e-09 Reference value :  5.25142e-09 Reference value :  5.54992e-09 Reference value :  5.84842e-09 Reference value :  6.14692e-09 Reference value :  6.44492e-09 Reference value :  6.74292e-09 Reference value :  7.04192e-09 Reference value :  7.34142e-09 Reference value :  7.64042e-09 Reference value :  7.94092e-09
+No. of Data Rows : 16014
+p011                =  6.29775e-10 from=  1.00000e-09 to=  8.00000e-09
+p111                =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p001                =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+p010                =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+e_ar                =  5.72739e-14 from=  0.00000e+00 to=  8.00000e-09
+e_af                =  3.54389e-14 from=  0.00000e+00 to=  8.00000e-09
+e_br                =  6.04838e-14 from=  0.00000e+00 to=  8.00000e-09
+e_bf                =  2.04434e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cr                =  6.56880e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cf                =  2.06849e-14 from=  0.00000e+00 to=  8.00000e-09
+final_ar            =  1.80000e+00
+final_af            =  2.34110e-07
+final_br            =  1.80000e+00
+final_bf            =  2.34110e-07
+final_cr            =  1.80000e+00
+final_cf            =  2.34110e-07
+Slew=100p Load=10f
+ar_nw = 7.158913e+03
+af_nw = 4.429336e+03
+br_nw = 7.560222e+03
+bf_nw = 2.554924e+03
+cr_nw = 8.210741e+03
+cf_nw = 2.585116e+03
+final_ar = 1.800000e+00
+final_af = 2.341101e-07
+final_br = 1.800000e+00
+final_bf = 2.341101e-07
+final_cr = 1.800000e+00
+final_cf = 2.341101e-07
+Reset re-loads circuit * nand3b post-layout vdd switching power
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+high                                       1.8
+s011                                       1.8
+s111                                       1.8
+s001                                       1.8
+s010                                       1.8
+xs011.inverter_x1_1/out                    1.8
+xs011.nand3_0/out                  3.00653e-07
+os011                               2.3411e-07
+xs011.nand3_0/a                            1.8
+xs111.inverter_x1_1/out            1.12952e-07
+xs111.nand3_0/out                          1.8
+os111                                      1.8
+xs111.nand3_0/a                    1.12952e-07
+xs001.inverter_x1_1/out            1.12952e-07
+xs001.nand3_0/out                          1.8
+os001                                      1.8
+xs001.nand3_0/a                            1.8
+xs010.inverter_x1_1/out            1.12952e-07
+xs010.nand3_0/out                          1.8
+os010                                      1.8
+xs010.nand3_0/a                            1.8
+ps011                              6.29775e-10
+ps111                              2.24202e-10
+ps001                              1.23936e-10
+ps010                              1.28822e-10
+up                                           0
+down                                       1.8
+var                                        1.8
+vaf                                        1.8
+vbr                                        1.8
+vbf                                        1.8
+vcr                                        1.8
+vcf                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+xbr.inverter_x1_1/out                      1.8
+xbr.nand3_0/out                    3.00653e-07
+out_br                              2.3411e-07
+xbr.nand3_0/a                              1.8
+xbf.inverter_x1_1/out              1.12952e-07
+xbf.nand3_0/out                            1.8
+out_bf                                     1.8
+xbf.nand3_0/a                              1.8
+xcr.inverter_x1_1/out                      1.8
+xcr.nand3_0/out                    3.00653e-07
+out_cr                              2.3411e-07
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out              1.12952e-07
+xcf.nand3_0/out                            1.8
+out_cf                                     1.8
+xcf.nand3_0/a                              1.8
+par                                6.29775e-10
+paf                                2.24202e-10
+pbr                                6.29775e-10
+pbf                                1.23936e-10
+pcr                                6.29775e-10
+pcf                                1.28822e-10
+bpcf#branch                                  0
+vddcf#branch                      -7.15676e-11
+bpcr#branch                                  0
+vddcr#branch                      -3.49875e-10
+bpbf#branch                                  0
+vddbf#branch                      -6.88534e-11
+bpbr#branch                                  0
+vddbr#branch                      -3.49875e-10
+bpaf#branch                                  0
+vddaf#branch                      -1.24557e-10
+bpar#branch                                  0
+vddar#branch                      -3.49875e-10
+bps010#branch                                0
+vs010#branch                      -7.15675e-11
+bps001#branch                                0
+vs001#branch                      -6.88533e-11
+bps111#branch                                0
+vs111#branch                      -1.24557e-10
+bps011#branch                                0
+vs011#branch                      -3.49875e-10
+vdown#branch                                 0
+vup#branch                                   0
+vhigh#branch                                 0
+
+ Reference value :  1.03140e-10 Reference value :  4.05140e-10 Reference value :  7.04640e-10 Reference value :  1.00714e-09 Reference value :  1.31014e-09 Reference value :  1.61264e-09 Reference value :  1.91614e-09 Reference value :  2.21542e-09 Reference value :  2.51692e-09 Reference value :  2.80942e-09 Reference value :  3.09842e-09 Reference value :  3.39292e-09 Reference value :  3.69292e-09 Reference value :  3.94192e-09 Reference value :  4.19392e-09 Reference value :  4.49592e-09 Reference value :  4.79792e-09 Reference value :  5.10042e-09 Reference value :  5.39992e-09 Reference value :  5.68742e-09 Reference value :  5.98992e-09 Reference value :  6.28892e-09 Reference value :  6.54242e-09 Reference value :  6.83942e-09 Reference value :  7.14142e-09 Reference value :  7.44292e-09 Reference value :  7.74492e-09
+No. of Data Rows : 16014
+p011                =  6.29775e-10 from=  1.00000e-09 to=  8.00000e-09
+p111                =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p001                =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+p010                =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+e_ar                =  3.49168e-13 from=  0.00000e+00 to=  8.00000e-09
+e_af                =  3.58133e-14 from=  0.00000e+00 to=  8.00000e-09
+e_br                =  3.52389e-13 from=  0.00000e+00 to=  8.00000e-09
+e_bf                =  2.08330e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cr                =  3.57600e-13 from=  0.00000e+00 to=  8.00000e-09
+e_cf                =  2.10660e-14 from=  0.00000e+00 to=  8.00000e-09
+final_ar            =  1.80000e+00
+final_af            =  2.34110e-07
+final_br            =  1.80000e+00
+final_bf            =  2.34110e-07
+final_cr            =  1.80000e+00
+final_cf            =  2.34110e-07
+Slew=100p Load=100f
+ar_nw = 4.364568e+04
+af_nw = 4.476137e+03
+br_nw = 4.404836e+04
+bf_nw = 2.603624e+03
+cr_nw = 4.469980e+04
+cf_nw = 2.632751e+03
+final_ar = 1.800000e+00
+final_af = 2.341101e-07
+final_br = 1.800000e+00
+final_bf = 2.341101e-07
+final_cr = 1.800000e+00
+final_cf = 2.341101e-07
+Reset re-loads circuit * nand3b post-layout vdd switching power
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+high                                       1.8
+s011                                       1.8
+s111                                       1.8
+s001                                       1.8
+s010                                       1.8
+xs011.inverter_x1_1/out                    1.8
+xs011.nand3_0/out                  3.00653e-07
+os011                               2.3411e-07
+xs011.nand3_0/a                            1.8
+xs111.inverter_x1_1/out            1.12952e-07
+xs111.nand3_0/out                          1.8
+os111                                      1.8
+xs111.nand3_0/a                    1.12952e-07
+xs001.inverter_x1_1/out            1.12952e-07
+xs001.nand3_0/out                          1.8
+os001                                      1.8
+xs001.nand3_0/a                            1.8
+xs010.inverter_x1_1/out            1.12952e-07
+xs010.nand3_0/out                          1.8
+os010                                      1.8
+xs010.nand3_0/a                            1.8
+ps011                              6.29775e-10
+ps111                              2.24202e-10
+ps001                              1.23936e-10
+ps010                              1.28822e-10
+up                                           0
+down                                       1.8
+var                                        1.8
+vaf                                        1.8
+vbr                                        1.8
+vbf                                        1.8
+vcr                                        1.8
+vcf                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+xbr.inverter_x1_1/out                      1.8
+xbr.nand3_0/out                    3.00653e-07
+out_br                              2.3411e-07
+xbr.nand3_0/a                              1.8
+xbf.inverter_x1_1/out              1.12952e-07
+xbf.nand3_0/out                            1.8
+out_bf                                     1.8
+xbf.nand3_0/a                              1.8
+xcr.inverter_x1_1/out                      1.8
+xcr.nand3_0/out                    3.00653e-07
+out_cr                              2.3411e-07
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out              1.12952e-07
+xcf.nand3_0/out                            1.8
+out_cf                                     1.8
+xcf.nand3_0/a                              1.8
+par                                6.29775e-10
+paf                                2.24202e-10
+pbr                                6.29775e-10
+pbf                                1.23936e-10
+pcr                                6.29775e-10
+pcf                                1.28822e-10
+bpcf#branch                                  0
+vddcf#branch                      -7.15676e-11
+bpcr#branch                                  0
+vddcr#branch                      -3.49875e-10
+bpbf#branch                                  0
+vddbf#branch                      -6.88534e-11
+bpbr#branch                                  0
+vddbr#branch                      -3.49875e-10
+bpaf#branch                                  0
+vddaf#branch                      -1.24557e-10
+bpar#branch                                  0
+vddar#branch                      -3.49875e-10
+bps010#branch                                0
+vs010#branch                      -7.15675e-11
+bps001#branch                                0
+vs001#branch                      -6.88533e-11
+bps111#branch                                0
+vs111#branch                      -1.24557e-10
+bps011#branch                                0
+vs011#branch                      -3.49875e-10
+vdown#branch                                 0
+vup#branch                                   0
+vhigh#branch                                 0
+
+ Reference value :  0.00000e+00 Reference value :  2.88140e-10 Reference value :  5.81140e-10 Reference value :  8.78140e-10 Reference value :  1.17214e-09 Reference value :  1.46964e-09 Reference value :  1.76614e-09 Reference value :  2.06125e-09 Reference value :  2.35875e-09 Reference value :  2.65625e-09 Reference value :  2.95525e-09 Reference value :  3.25225e-09 Reference value :  3.54925e-09 Reference value :  3.84442e-09 Reference value :  4.14492e-09 Reference value :  4.44542e-09 Reference value :  4.74592e-09 Reference value :  5.04692e-09 Reference value :  5.34792e-09 Reference value :  5.64642e-09 Reference value :  5.94792e-09 Reference value :  6.24392e-09 Reference value :  6.54492e-09 Reference value :  6.84592e-09 Reference value :  7.14692e-09 Reference value :  7.44842e-09 Reference value :  7.75042e-09
+No. of Data Rows : 16014
+p011                =  6.29775e-10 from=  1.00000e-09 to=  8.00000e-09
+p111                =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p001                =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+p010                =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+e_ar                =  2.82307e-14 from=  0.00000e+00 to=  8.00000e-09
+e_af                =  3.78498e-14 from=  0.00000e+00 to=  8.00000e-09
+e_br                =  3.42924e-14 from=  0.00000e+00 to=  8.00000e-09
+e_bf                =  2.20664e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cr                =  3.93000e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cf                =  2.16009e-14 from=  0.00000e+00 to=  8.00000e-09
+final_ar            =  1.80000e+00
+final_af            =  2.34110e-07
+final_br            =  1.80000e+00
+final_bf            =  2.34110e-07
+final_cr            =  1.80000e+00
+final_cf            =  2.34110e-07
+Slew=1000p Load=0.5f
+ar_nw = 3.528468e+03
+af_nw = 4.730734e+03
+br_nw = 4.286246e+03
+bf_nw = 2.757849e+03
+cr_nw = 4.912190e+03
+cf_nw = 2.699659e+03
+final_ar = 1.800000e+00
+final_af = 2.341101e-07
+final_br = 1.800000e+00
+final_bf = 2.341101e-07
+final_cr = 1.800000e+00
+final_cf = 2.341101e-07
+Reset re-loads circuit * nand3b post-layout vdd switching power
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+high                                       1.8
+s011                                       1.8
+s111                                       1.8
+s001                                       1.8
+s010                                       1.8
+xs011.inverter_x1_1/out                    1.8
+xs011.nand3_0/out                  3.00653e-07
+os011                               2.3411e-07
+xs011.nand3_0/a                            1.8
+xs111.inverter_x1_1/out            1.12952e-07
+xs111.nand3_0/out                          1.8
+os111                                      1.8
+xs111.nand3_0/a                    1.12952e-07
+xs001.inverter_x1_1/out            1.12952e-07
+xs001.nand3_0/out                          1.8
+os001                                      1.8
+xs001.nand3_0/a                            1.8
+xs010.inverter_x1_1/out            1.12952e-07
+xs010.nand3_0/out                          1.8
+os010                                      1.8
+xs010.nand3_0/a                            1.8
+ps011                              6.29775e-10
+ps111                              2.24202e-10
+ps001                              1.23936e-10
+ps010                              1.28822e-10
+up                                           0
+down                                       1.8
+var                                        1.8
+vaf                                        1.8
+vbr                                        1.8
+vbf                                        1.8
+vcr                                        1.8
+vcf                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+xbr.inverter_x1_1/out                      1.8
+xbr.nand3_0/out                    3.00653e-07
+out_br                              2.3411e-07
+xbr.nand3_0/a                              1.8
+xbf.inverter_x1_1/out              1.12952e-07
+xbf.nand3_0/out                            1.8
+out_bf                                     1.8
+xbf.nand3_0/a                              1.8
+xcr.inverter_x1_1/out                      1.8
+xcr.nand3_0/out                    3.00653e-07
+out_cr                              2.3411e-07
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out              1.12952e-07
+xcf.nand3_0/out                            1.8
+out_cf                                     1.8
+xcf.nand3_0/a                              1.8
+par                                6.29775e-10
+paf                                2.24202e-10
+pbr                                6.29775e-10
+pbf                                1.23936e-10
+pcr                                6.29775e-10
+pcf                                1.28822e-10
+bpcf#branch                                  0
+vddcf#branch                      -7.15676e-11
+bpcr#branch                                  0
+vddcr#branch                      -3.49875e-10
+bpbf#branch                                  0
+vddbf#branch                      -6.88534e-11
+bpbr#branch                                  0
+vddbr#branch                      -3.49875e-10
+bpaf#branch                                  0
+vddaf#branch                      -1.24557e-10
+bpar#branch                                  0
+vddar#branch                      -3.49875e-10
+bps010#branch                                0
+vs010#branch                      -7.15675e-11
+bps001#branch                                0
+vs001#branch                      -6.88533e-11
+bps111#branch                                0
+vs111#branch                      -1.24557e-10
+bps011#branch                                0
+vs011#branch                      -3.49875e-10
+vdown#branch                                 0
+vup#branch                                   0
+vhigh#branch                                 0
+
+ Reference value :  0.00000e+00 Reference value :  2.92140e-10 Reference value :  5.92140e-10 Reference value :  8.93140e-10 Reference value :  1.19314e-09 Reference value :  1.49364e-09 Reference value :  1.79414e-09 Reference value :  2.09225e-09 Reference value :  2.39375e-09 Reference value :  2.69525e-09 Reference value :  2.99575e-09 Reference value :  3.29375e-09 Reference value :  3.59275e-09 Reference value :  3.89042e-09 Reference value :  4.19192e-09 Reference value :  4.49292e-09 Reference value :  4.79392e-09 Reference value :  5.09442e-09 Reference value :  5.39542e-09 Reference value :  5.69492e-09 Reference value :  5.99592e-09 Reference value :  6.29692e-09 Reference value :  6.59792e-09 Reference value :  6.89942e-09 Reference value :  7.20142e-09 Reference value :  7.50292e-09 Reference value :  7.80392e-09
+No. of Data Rows : 16014
+p011                =  6.29775e-10 from=  1.00000e-09 to=  8.00000e-09
+p111                =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p001                =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+p010                =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+e_ar                =  5.94866e-14 from=  0.00000e+00 to=  8.00000e-09
+e_af                =  3.86271e-14 from=  0.00000e+00 to=  8.00000e-09
+e_br                =  6.53973e-14 from=  0.00000e+00 to=  8.00000e-09
+e_bf                =  2.27347e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cr                =  7.04127e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cf                =  2.22832e-14 from=  0.00000e+00 to=  8.00000e-09
+final_ar            =  1.80000e+00
+final_af            =  2.34110e-07
+final_br            =  1.80000e+00
+final_bf            =  2.34110e-07
+final_cr            =  1.80000e+00
+final_cf            =  2.34110e-07
+Slew=1000p Load=10f
+ar_nw = 7.435456e+03
+af_nw = 4.827896e+03
+br_nw = 8.174359e+03
+bf_nw = 2.841382e+03
+cr_nw = 8.801283e+03
+cf_nw = 2.784948e+03
+final_ar = 1.800000e+00
+final_af = 2.341101e-07
+final_br = 1.800000e+00
+final_bf = 2.341101e-07
+final_cr = 1.800000e+00
+final_cf = 2.341101e-07
+Reset re-loads circuit * nand3b post-layout vdd switching power
+
+Circuit: * nand3b post-layout vdd switching power
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+high                                       1.8
+s011                                       1.8
+s111                                       1.8
+s001                                       1.8
+s010                                       1.8
+xs011.inverter_x1_1/out                    1.8
+xs011.nand3_0/out                  3.00653e-07
+os011                               2.3411e-07
+xs011.nand3_0/a                            1.8
+xs111.inverter_x1_1/out            1.12952e-07
+xs111.nand3_0/out                          1.8
+os111                                      1.8
+xs111.nand3_0/a                    1.12952e-07
+xs001.inverter_x1_1/out            1.12952e-07
+xs001.nand3_0/out                          1.8
+os001                                      1.8
+xs001.nand3_0/a                            1.8
+xs010.inverter_x1_1/out            1.12952e-07
+xs010.nand3_0/out                          1.8
+os010                                      1.8
+xs010.nand3_0/a                            1.8
+ps011                              6.29775e-10
+ps111                              2.24202e-10
+ps001                              1.23936e-10
+ps010                              1.28822e-10
+up                                           0
+down                                       1.8
+var                                        1.8
+vaf                                        1.8
+vbr                                        1.8
+vbf                                        1.8
+vcr                                        1.8
+vcf                                        1.8
+xar.inverter_x1_1/out                      1.8
+xar.nand3_0/out                    3.00653e-07
+out_ar                              2.3411e-07
+xar.nand3_0/a                              1.8
+xaf.inverter_x1_1/out              1.12952e-07
+xaf.nand3_0/out                            1.8
+out_af                                     1.8
+xaf.nand3_0/a                      1.12952e-07
+xbr.inverter_x1_1/out                      1.8
+xbr.nand3_0/out                    3.00653e-07
+out_br                              2.3411e-07
+xbr.nand3_0/a                              1.8
+xbf.inverter_x1_1/out              1.12952e-07
+xbf.nand3_0/out                            1.8
+out_bf                                     1.8
+xbf.nand3_0/a                              1.8
+xcr.inverter_x1_1/out                      1.8
+xcr.nand3_0/out                    3.00653e-07
+out_cr                              2.3411e-07
+xcr.nand3_0/a                              1.8
+xcf.inverter_x1_1/out              1.12952e-07
+xcf.nand3_0/out                            1.8
+out_cf                                     1.8
+xcf.nand3_0/a                              1.8
+par                                6.29775e-10
+paf                                2.24202e-10
+pbr                                6.29775e-10
+pbf                                1.23936e-10
+pcr                                6.29775e-10
+pcf                                1.28822e-10
+bpcf#branch                                  0
+vddcf#branch                      -7.15676e-11
+bpcr#branch                                  0
+vddcr#branch                      -3.49875e-10
+bpbf#branch                                  0
+vddbf#branch                      -6.88534e-11
+bpbr#branch                                  0
+vddbr#branch                      -3.49875e-10
+bpaf#branch                                  0
+vddaf#branch                      -1.24557e-10
+bpar#branch                                  0
+vddar#branch                      -3.49875e-10
+bps010#branch                                0
+vs010#branch                      -7.15675e-11
+bps001#branch                                0
+vs001#branch                      -6.88533e-11
+bps111#branch                                0
+vs111#branch                      -1.24557e-10
+bps011#branch                                0
+vs011#branch                      -3.49875e-10
+vdown#branch                                 0
+vup#branch                                   0
+vhigh#branch                                 0
+
+ Reference value :  0.00000e+00 Reference value :  2.03140e-10 Reference value :  4.85140e-10 Reference value :  7.87140e-10 Reference value :  1.08814e-09 Reference value :  1.38814e-09 Reference value :  1.68814e-09 Reference value :  1.98714e-09 Reference value :  2.28475e-09 Reference value :  2.58425e-09 Reference value :  2.88325e-09 Reference value :  3.18175e-09 Reference value :  3.48025e-09 Reference value :  3.77842e-09 Reference value :  4.07842e-09 Reference value :  4.37792e-09 Reference value :  4.67742e-09 Reference value :  4.97642e-09 Reference value :  5.27542e-09 Reference value :  5.57392e-09 Reference value :  5.87292e-09 Reference value :  6.17192e-09 Reference value :  6.47042e-09 Reference value :  6.76792e-09 Reference value :  7.06392e-09 Reference value :  7.36042e-09 Reference value :  7.65692e-09 Reference value :  7.95342e-09
+No. of Data Rows : 16014
+p011                =  6.29775e-10 from=  1.00000e-09 to=  8.00000e-09
+p111                =  2.24202e-10 from=  1.00000e-09 to=  8.00000e-09
+p001                =  1.23936e-10 from=  1.00000e-09 to=  8.00000e-09
+p010                =  1.28822e-10 from=  1.00000e-09 to=  8.00000e-09
+e_ar                =  3.51404e-13 from=  0.00000e+00 to=  8.00000e-09
+e_af                =  3.90448e-14 from=  0.00000e+00 to=  8.00000e-09
+e_br                =  3.57400e-13 from=  0.00000e+00 to=  8.00000e-09
+e_bf                =  2.33503e-14 from=  0.00000e+00 to=  8.00000e-09
+e_cr                =  3.62412e-13 from=  0.00000e+00 to=  8.00000e-09
+e_cf                =  2.28865e-14 from=  0.00000e+00 to=  8.00000e-09
+final_ar            =  1.80000e+00
+final_af            =  2.34110e-07
+final_br            =  1.80000e+00
+final_bf            =  2.34110e-07
+final_cr            =  1.80000e+00
+final_cf            =  2.34110e-07
+Slew=1000p Load=100f
+ar_nw = 4.392508e+04
+af_nw = 4.880108e+03
+br_nw = 4.467471e+04
+bf_nw = 2.918341e+03
+cr_nw = 4.530124e+04
+cf_nw = 2.860364e+03
+final_ar = 1.800000e+00
+final_af = 2.341102e-07
+final_br = 1.800000e+00
+final_bf = 2.341102e-07
+final_cr = 1.800000e+00
+final_cf = 2.341102e-07
+ngspice-47 done

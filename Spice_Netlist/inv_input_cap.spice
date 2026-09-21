@@ -1,0 +1,45 @@
+* Post-layout inverter input capacitance
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt InvX1_PEX vin Vdd Vss vout
+.include Spice_Netlist/inv_pex.spice
+.ends InvX1_PEX
+
+VDD vdd 0 DC 1.8
+
+XRISE in_rise vdd 0 out_rise InvX1_PEX
+XFALL in_fall vdd 0 out_fall InvX1_PEX
+
+RRISE in_rise 0 1e12
+RFALL in_fall vdd 1e12
+IRISE 0 in_rise PULSE(0 1u 1n 1p 1p 4n 10n)
+IFALL in_fall 0 PULSE(0 1u 1n 1p 1p 4n 10n)
+DCLPR in_rise vdd DCLAMP
+DCLNF 0 in_fall DCLAMP
+.model DCLAMP D(IS=1e-12 N=1 RS=1 CJO=0)
+
+.ic v(in_rise)=0 v(in_fall)=1.8
+
+.control
+set noaskquit
+
+tran 0.5p 5.1n
+
+meas tran rise_dt trig v(in_rise) val=0.36 rise=1 targ v(in_rise) val=1.44 rise=1
+meas tran fall_dt trig v(in_fall) val=1.44 fall=1 targ v(in_fall) val=0.36 fall=1
+
+let cap_rise_ff = 1e-6 * rise_dt / 1.08 * 1e15
+let cap_fall_ff = 1e-6 * fall_dt / 1.08 * 1e15
+let cap_avg_ff = (cap_rise_ff + cap_fall_ff) / 2
+
+echo "input_cap,,,rise,$&cap_rise_ff,fF" >> Reports/inv_characterization.csv
+echo "input_cap,,,fall,$&cap_fall_ff,fF" >> Reports/inv_characterization.csv
+echo "input_cap,,,average,$&cap_avg_ff,fF" >> Reports/inv_characterization.csv
+
+print cap_rise_ff cap_fall_ff cap_avg_ff
+
+quit
+.endc
+
+.end

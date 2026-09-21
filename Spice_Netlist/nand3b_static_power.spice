@@ -1,0 +1,77 @@
+* NAND3B post-layout static supply power
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt NAND3B_PEX vdd a b c vss out
+.include Spice_Netlist/nand3b_pex.spice
+.ends NAND3B_PEX
+
+VDD000 v000 0 DC 1.8
+VDD001 v001 0 DC 1.8
+VDD010 v010 0 DC 1.8
+VDD011 v011 0 DC 1.8
+VDD100 v100 0 DC 1.8
+VDD101 v101 0 DC 1.8
+VDD110 v110 0 DC 1.8
+VDD111 v111 0 DC 1.8
+
+VHIGH high 0 DC 1.8
+
+X000 v000 0 0 0 0 out000 NAND3B_PEX
+X001 v001 0 0 high 0 out001 NAND3B_PEX
+X010 v010 0 high 0 0 out010 NAND3B_PEX
+X011 v011 0 high high 0 out011 NAND3B_PEX
+X100 v100 high 0 0 0 out100 NAND3B_PEX
+X101 v101 high 0 high 0 out101 NAND3B_PEX
+X110 v110 high high 0 0 out110 NAND3B_PEX
+X111 v111 high high high 0 out111 NAND3B_PEX
+
+BP000 p000 0 V=-v(v000)*i(VDD000)
+BP001 p001 0 V=-v(v001)*i(VDD001)
+BP010 p010 0 V=-v(v010)*i(VDD010)
+BP011 p011 0 V=-v(v011)*i(VDD011)
+BP100 p100 0 V=-v(v100)*i(VDD100)
+BP101 p101 0 V=-v(v101)*i(VDD101)
+BP110 p110 0 V=-v(v110)*i(VDD110)
+BP111 p111 0 V=-v(v111)*i(VDD111)
+
+.control
+set noaskquit
+
+tran 1p 8n
+
+meas tran static000 avg v(p000) from=1n to=8n
+meas tran static001 avg v(p001) from=1n to=8n
+meas tran static010 avg v(p010) from=1n to=8n
+meas tran static011 avg v(p011) from=1n to=8n
+meas tran static100 avg v(p100) from=1n to=8n
+meas tran static101 avg v(p101) from=1n to=8n
+meas tran static110 avg v(p110) from=1n to=8n
+meas tran static111 avg v(p111) from=1n to=8n
+
+let p000_nw = static000 * 1e9
+let p001_nw = static001 * 1e9
+let p010_nw = static010 * 1e9
+let p011_nw = static011 * 1e9
+let p100_nw = static100 * 1e9
+let p101_nw = static101 * 1e9
+let p110_nw = static110 * 1e9
+let p111_nw = static111 * 1e9
+
+echo "a,b,c,static_power_nW" > Reports/nand3b_static_power.csv
+echo "0,0,0,$&p000_nw" >> Reports/nand3b_static_power.csv
+echo "0,0,1,$&p001_nw" >> Reports/nand3b_static_power.csv
+echo "0,1,0,$&p010_nw" >> Reports/nand3b_static_power.csv
+echo "0,1,1,$&p011_nw" >> Reports/nand3b_static_power.csv
+echo "1,0,0,$&p100_nw" >> Reports/nand3b_static_power.csv
+echo "1,0,1,$&p101_nw" >> Reports/nand3b_static_power.csv
+echo "1,1,0,$&p110_nw" >> Reports/nand3b_static_power.csv
+echo "1,1,1,$&p111_nw" >> Reports/nand3b_static_power.csv
+
+print p000_nw p001_nw p010_nw p011_nw
+print p100_nw p101_nw p110_nw p111_nw
+
+quit
+.endc
+
+.end
