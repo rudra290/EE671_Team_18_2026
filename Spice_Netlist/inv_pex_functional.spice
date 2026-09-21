@@ -30,7 +30,12 @@ echo "--------------------------------------------------------"
 print t_r t_f t_phl t_plh tp
 echo "--------------------------------------------------------"
 
-plot v(in) v(out1) v(out2)
+meas tran t20 when V(out1)=0.36 rise=1
+meas tran t80 when V(out1)=1.44 rise=1
+let marker20 = (time >= t20) * 1.8
+let marker80 = (time >= t80) * 1.8
+
+plot v(in) v(out1) marker20 marker80
 .endc
 
 .end
