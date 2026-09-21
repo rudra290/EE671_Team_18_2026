@@ -32,25 +32,25 @@ library (inv){
   } /* end lu_table_template */
   cell (inv) {
     area : 5.34 ;
-    pin (vin) {
+    pin (VIN) {
       direction : input ;
       rise_capacitance : 0.002121 ;
       fall_capacitance : 0.002045 ;
       capacitance : 0.002121 ;
     } /* end pin */
-    pg_pin (Vdd) {
-      voltage_name : Vdd ;
+    pg_pin (VDD) {
+      voltage_name : VDD ;
       pg_type : primary_power ;
     } /* end pg_pin */
-    pg_pin (Vss) {
-      voltage_name : Vss ;
+    pg_pin (VSS) {
+      voltage_name : VSS ;
       pg_type : primary_ground ;
     } /* end pg_pin */
-    pin (vout) {
+    pin (VOUT) {
       direction : output ;
-      function : "vout = !vin" ;
+      function : "VOUT = !VIN" ;
       timing () {
-        related_pin : vin ;
+        related_pin : VIN ;
         timing_type : combinational_rise ;
         cell_rise (delay_template_3x3) {
           index_1 ("0.000500, 0.010000, 0.100000") ;
@@ -72,7 +72,7 @@ library (inv){
         } /* end rise_transition */
       } /* end timing */
       timing () {
-        related_pin : vin ;
+        related_pin : VIN ;
         timing_type : combinational_fall ;
         cell_fall (delay_template_3x3) {
           index_1 ("0.000500, 0.010000, 0.100000") ;
@@ -95,11 +95,11 @@ library (inv){
       } /* end timing */
     } /* end pin */
     leakage_power () {
-      when : vin ;
+      when : VIN ;
       value : 0.108613 ;
     } /* end leakage_power */
     leakage_power () {
-      when : "!vin" ;
+      when : "!VIN" ;
       value : 0.003305 ;
     } /* end leakage_power */
   } /* end cell */

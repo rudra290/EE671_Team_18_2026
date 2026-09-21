@@ -3,12 +3,13 @@ VERSION 5.7 ;
   DIVIDERCHAR "/" ;
   BUSBITCHARS "[]" ;
 MACRO nand3b
-  CLASS CORE ;
+  CLASS BLOCK ;
   FOREIGN nand3b ;
   ORIGIN -0.010 0.000 ;
   SIZE 8.890 BY 3.200 ;
   PIN vdd
-    ANTENNADIFFAREA 3.588000 ;
+    DIRECTION INOUT ;
+    USE POWER ;
     PORT
       LAYER nwell ;
         RECT 0.010 1.320 1.420 2.940 ;
@@ -34,6 +35,8 @@ MACRO nand3b
     END
   END vdd
   PIN a
+    DIRECTION INPUT ;
+    USE SIGNAL ;
     ANTENNAGATEAREA 0.252000 ;
     PORT
       LAYER li1 ;
@@ -41,6 +44,8 @@ MACRO nand3b
     END
   END a
   PIN b
+    DIRECTION INPUT ;
+    USE SIGNAL ;
     ANTENNAGATEAREA 0.378000 ;
     PORT
       LAYER li1 ;
@@ -48,6 +53,8 @@ MACRO nand3b
     END
   END b
   PIN c
+    DIRECTION INPUT ;
+    USE SIGNAL ;
     ANTENNAGATEAREA 0.378000 ;
     PORT
       LAYER li1 ;
@@ -55,7 +62,8 @@ MACRO nand3b
     END
   END c
   PIN vss
-    ANTENNADIFFAREA 1.566000 ;
+    DIRECTION INOUT ;
+    USE GROUND ;
     PORT
       LAYER li1 ;
         RECT 0.210 0.470 0.750 0.810 ;
@@ -73,6 +81,8 @@ MACRO nand3b
     END
   END vss
   PIN out
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
     ANTENNADIFFAREA 0.644800 ;
     PORT
       LAYER li1 ;

@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1789829129
+timestamp 1789974731
 << nwell >>
 rect 363 290 751 298
 rect 513 132 609 290
@@ -54,15 +54,15 @@ transform 1 0 203 0 1 77
 box -44 -77 357 243
 << labels >>
 rlabel metal1 1 0 10 48 3 vss
-port 5 e
+port 5 e ground bidirectional
 rlabel metal1 1 272 10 320 3 vdd
-port 1 e
+port 1 e power bidirectional
 rlabel locali 167 151 184 168 3 b
-port 3 e
+port 3 e signal input
 rlabel locali 167 100 184 117 3 c
-port 4 e
+port 4 e signal input
 rlabel ndiffc 847 37 864 54 3 out
-port 6 e
+port 6 e signal output
 rlabel locali 10 113 27 130 1 a
-port 2 n
+port 2 n signal input
 << end >>

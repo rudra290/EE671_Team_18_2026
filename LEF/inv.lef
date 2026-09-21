@@ -1,14 +1,11 @@
-VERSION 5.7 ;
-  NOWIREEXTENSIONATPIN ON ;
-  DIVIDERCHAR "/" ;
-  BUSBITCHARS "[]" ;
 MACRO inv
-  CLASS CORE ;
+  CLASS BLOCK ;
   FOREIGN inv ;
   ORIGIN 0.000 0.000 ;
   SIZE 1.670 BY 3.200 ;
-  SYMMETRY X ;
   PIN vin
+    DIRECTION INPUT ;
+    USE SIGNAL ;
     ANTENNAGATEAREA 0.252000 ;
     PORT
       LAYER li1 ;
@@ -16,7 +13,8 @@ MACRO inv
     END
   END vin
   PIN Vdd
-    ANTENNADIFFAREA 0.812700 ;
+    DIRECTION INOUT ;
+    USE POWER ;
     PORT
       LAYER nwell ;
         RECT 0.100 1.340 1.560 2.960 ;
@@ -34,7 +32,8 @@ MACRO inv
     END
   END Vdd
   PIN Vss
-    ANTENNADIFFAREA 0.270900 ;
+    DIRECTION INOUT ;
+    USE GROUND ;
     PORT
       LAYER li1 ;
         RECT 0.700 0.770 0.870 0.850 ;
@@ -46,6 +45,8 @@ MACRO inv
     END
   END Vss
   PIN vout
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
     ANTENNADIFFAREA 0.504000 ;
     PORT
       LAYER li1 ;

@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1789638638
+timestamp 1789974606
 << nwell >>
 rect 20 268 312 592
 << nmos >>
@@ -145,11 +145,11 @@ rect 328 31 334 65
 rect 0 0 334 31
 << labels >>
 rlabel viali 150 575 184 609 1 Vdd
-port 1 n
+port 1 n power bidirectional
 rlabel locali 226 223 260 257 1 vout
-port 3 n
+port 3 n signal output
 rlabel polycont 158 223 192 257 1 vin
-port 0 n
+port 0 n signal input
 rlabel viali 150 31 184 65 1 Vss
-port 2 n
+port 2 n ground bidirectional
 << end >>

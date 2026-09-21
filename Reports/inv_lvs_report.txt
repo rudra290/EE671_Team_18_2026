@@ -30,7 +30,7 @@ Cell pin lists are equivalent.
 Device classes sky130_fd_pr__nfet_01v8 and sky130_fd_pr__nfet_01v8 are equivalent.
 
 Subcircuit summary:
-Circuit 1: Inverter_X1                     |Circuit 2: Inverter_X1                     
+Circuit 1: invX1                           |Circuit 2: Inverter_X1                     
 -------------------------------------------|-------------------------------------------
 sky130_fd_pr__pfet_01v8 (1)                |sky130_fd_pr__pfet_01v8 (1)                
 sky130_fd_pr__nfet_01v8 (1)                |sky130_fd_pr__nfet_01v8 (1)                
@@ -40,7 +40,7 @@ Number of nets: 4                          |Number of nets: 4
 Netlists match uniquely.
 
 Subcircuit pins:
-Circuit 1: Inverter_X1                     |Circuit 2: Inverter_X1                     
+Circuit 1: invX1                           |Circuit 2: Inverter_X1                     
 -------------------------------------------|-------------------------------------------
 vout                                       |vout                                       
 vin                                        |vin                                        
@@ -48,7 +48,7 @@ Vdd                                        |Vdd
 Vss                                        |Vss                                        
 ---------------------------------------------------------------------------------------
 Cell pin lists are equivalent.
-Device classes Inverter_X1 and Inverter_X1 are equivalent.
+Device classes invX1 and Inverter_X1 are equivalent.
 
 Final result: Circuits match uniquely.
 .
