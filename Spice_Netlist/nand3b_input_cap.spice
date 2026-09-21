@@ -1,0 +1,86 @@
+* NAND3B post-layout input capacitance
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt NAND3B_PEX vdd a b c vss out
+.include Spice_Netlist/nand3b_pex.spice
+.ends NAND3B_PEX
+
+VDD vdd 0 DC 1.8
+
+XAR vdd a_rise vdd vdd 0 out_ar NAND3B_PEX
+XAF vdd a_fall vdd vdd 0 out_af NAND3B_PEX
+XBR vdd 0 b_rise vdd 0 out_br NAND3B_PEX
+XBF vdd 0 b_fall vdd 0 out_bf NAND3B_PEX
+XCR vdd 0 vdd c_rise 0 out_cr NAND3B_PEX
+XCF vdd 0 vdd c_fall 0 out_cf NAND3B_PEX
+
+RAR a_rise 0 1e12
+RAF a_fall vdd 1e12
+RBR b_rise 0 1e12
+RBF b_fall vdd 1e12
+RCR c_rise 0 1e12
+RCF c_fall vdd 1e12
+
+IAR 0 a_rise PULSE(0 1u 1n 1p 1p 20n 50n)
+IAF a_fall 0 PULSE(0 1u 1n 1p 1p 20n 50n)
+IBR 0 b_rise PULSE(0 1u 1n 1p 1p 20n 50n)
+IBF b_fall 0 PULSE(0 1u 1n 1p 1p 20n 50n)
+ICR 0 c_rise PULSE(0 1u 1n 1p 1p 20n 50n)
+ICF c_fall 0 PULSE(0 1u 1n 1p 1p 20n 50n)
+
+DAR a_rise vdd DCLAMP
+DAF 0 a_fall DCLAMP
+DBR b_rise vdd DCLAMP
+DBF 0 b_fall DCLAMP
+DCR c_rise vdd DCLAMP
+DCF 0 c_fall DCLAMP
+.model DCLAMP D(IS=1e-12 N=1 RS=1 CJO=0)
+
+.ic v(a_rise)=0 v(a_fall)=1.8
+.ic v(b_rise)=0 v(b_fall)=1.8
+.ic v(c_rise)=0 v(c_fall)=1.8
+
+.control
+set noaskquit
+
+tran 0.5p 22n
+
+meas tran a_rise_dt trig v(a_rise) val=0.36 rise=1 targ v(a_rise) val=1.44 rise=1
+meas tran a_fall_dt trig v(a_fall) val=1.44 fall=1 targ v(a_fall) val=0.36 fall=1
+meas tran b_rise_dt trig v(b_rise) val=0.36 rise=1 targ v(b_rise) val=1.44 rise=1
+meas tran b_fall_dt trig v(b_fall) val=1.44 fall=1 targ v(b_fall) val=0.36 fall=1
+meas tran c_rise_dt trig v(c_rise) val=0.36 rise=1 targ v(c_rise) val=1.44 rise=1
+meas tran c_fall_dt trig v(c_fall) val=1.44 fall=1 targ v(c_fall) val=0.36 fall=1
+
+let a_cap_rise_ff = 1e-6 * a_rise_dt / 1.08 * 1e15
+let a_cap_fall_ff = 1e-6 * a_fall_dt / 1.08 * 1e15
+let a_cap_avg_ff = (a_cap_rise_ff + a_cap_fall_ff) / 2
+
+let b_cap_rise_ff = 1e-6 * b_rise_dt / 1.08 * 1e15
+let b_cap_fall_ff = 1e-6 * b_fall_dt / 1.08 * 1e15
+let b_cap_avg_ff = (b_cap_rise_ff + b_cap_fall_ff) / 2
+
+let c_cap_rise_ff = 1e-6 * c_rise_dt / 1.08 * 1e15
+let c_cap_fall_ff = 1e-6 * c_fall_dt / 1.08 * 1e15
+let c_cap_avg_ff = (c_cap_rise_ff + c_cap_fall_ff) / 2
+
+echo "input,condition,capacitance_fF" > Reports/nand3b_input_cap.csv
+echo "A,rise,$&a_cap_rise_ff" >> Reports/nand3b_input_cap.csv
+echo "A,fall,$&a_cap_fall_ff" >> Reports/nand3b_input_cap.csv
+echo "A,average,$&a_cap_avg_ff" >> Reports/nand3b_input_cap.csv
+echo "B,rise,$&b_cap_rise_ff" >> Reports/nand3b_input_cap.csv
+echo "B,fall,$&b_cap_fall_ff" >> Reports/nand3b_input_cap.csv
+echo "B,average,$&b_cap_avg_ff" >> Reports/nand3b_input_cap.csv
+echo "C,rise,$&c_cap_rise_ff" >> Reports/nand3b_input_cap.csv
+echo "C,fall,$&c_cap_fall_ff" >> Reports/nand3b_input_cap.csv
+echo "C,average,$&c_cap_avg_ff" >> Reports/nand3b_input_cap.csv
+
+print a_cap_rise_ff a_cap_fall_ff a_cap_avg_ff
+print b_cap_rise_ff b_cap_fall_ff b_cap_avg_ff
+print c_cap_rise_ff c_cap_fall_ff c_cap_avg_ff
+
+quit
+.endc
+
+.end

@@ -1,0 +1,82 @@
+* NAND3B pre-layout timing with extracted INVX1 load
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt Inverter_X1 in vdd vss out
+XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.26 as='w*2*l' ad='w*2*l' ps='2*(w+2*l)' pd='2*(w+2*l)'
+XM2 out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42 as='w*2*l' ad='w*2*l' ps='2*(w+2*l)' pd='2*(w+2*l)'
+.ends Inverter_X1
+
+.subckt Inverter_X1_25 in vdd vss out
+XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.57 as='w*2*l' ad='w*2*l' ps='2*(w+2*l)' pd='2*(w+2*l)'
+XM2 out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.51 as='w*2*l' ad='w*2*l' ps='2*(w+2*l)' pd='2*(w+2*l)'
+.ends Inverter_X1_25
+
+.subckt NAND vdd a b c vss out
+XM_Ap_bar out a vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.26 as='w*2*l' ps='2*(w+2*l)' ad='w*l' pd='w'
+XM_Bp out b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.26 as='w*l' ps='w' ad='w*l' pd='w'
+XM_Cp out c vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.26 as='w*l' ps='w' ad='w*2*l' pd='2*(w+2*l)'
+
+XM_An_bar out a ab vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.26 ad='w*2*l' pd='2*(w+2*l)' as='w*l' ps='w'
+XM_Bn ab b bc vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.26 ad='w*l' pd='w' as='w*l' ps='w'
+XM_Cn bc c vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.26 ad='w*l' pd='w' as='w*2*l' ps='2*(w+2*l)'
+.ends NAND
+
+.subckt nand3b vdd a b c vss out
+XINVA a vdd vss abar Inverter_X1
+XNAND vdd abar b c vss N1_out NAND
+Xb1 N1_out vdd vss B1_out Inverter_X1
+Xb2 B1_out vdd vss out Inverter_X1_25
+.ends nand3b
+
+.subckt INVX1_LOAD vin vdd vss vout
+.include Spice_Netlist/inv_pex.spice
+.ends INVX1_LOAD
+
+VDD vdd 0 DC 1.8
+VIN in 0 PULSE(0 1.8 1n 20p 20p 3n 8n)
+
+XDUT_A vdd in vdd vdd 0 out_a nand3b
+XDUT_B vdd 0 in vdd 0 out_b nand3b
+XDUT_C vdd 0 vdd in 0 out_c nand3b
+
+XLOAD_A out_a vdd 0 load_a Inverter_X1
+XLOAD_B out_b vdd 0 load_b Inverter_X1
+XLOAD_C out_c vdd 0 load_c Inverter_X1
+
+.control
+set color0=white
+set color1=black
+
+tran 1p 8n
+
+meas tran a_tr trig v(out_a) val=0.36 rise=1 targ v(out_a) val=1.44 rise=1
+meas tran a_tf trig v(out_a) val=1.44 fall=1 targ v(out_a) val=0.36 fall=1
+meas tran a_tphl trig v(in) val=0.9 fall=1 targ v(out_a) val=0.9 fall=1
+meas tran a_tplh trig v(in) val=0.9 rise=1 targ v(out_a) val=0.9 rise=1
+
+meas tran b_tr trig v(out_b) val=0.36 rise=1 targ v(out_b) val=1.44 rise=1
+meas tran b_tf trig v(out_b) val=1.44 fall=1 targ v(out_b) val=0.36 fall=1
+meas tran b_tphl trig v(in) val=0.9 rise=1 targ v(out_b) val=0.9 fall=1
+meas tran b_tplh trig v(in) val=0.9 fall=1 targ v(out_b) val=0.9 rise=1
+
+meas tran c_tr trig v(out_c) val=0.36 rise=1 targ v(out_c) val=1.44 rise=1
+meas tran c_tf trig v(out_c) val=1.44 fall=1 targ v(out_c) val=0.36 fall=1
+meas tran c_tphl trig v(in) val=0.9 rise=1 targ v(out_c) val=0.9 fall=1
+meas tran c_tplh trig v(in) val=0.9 fall=1 targ v(out_c) val=0.9 rise=1
+
+let a_tp = (a_tphl + a_tplh) / 2
+let b_tp = (b_tphl + b_tplh) / 2
+let c_tp = (c_tphl + c_tplh) / 2
+
+echo "A path: times in seconds"
+print a_tr a_tf a_tphl a_tplh a_tp
+echo "B path: times in seconds"
+print b_tr b_tf b_tphl b_tplh b_tp
+echo "C path: times in seconds"
+print c_tr c_tf c_tphl c_tplh c_tp
+
+plot v(in) v(out_a) v(out_b) v(out_c)
+.endc
+
+.end

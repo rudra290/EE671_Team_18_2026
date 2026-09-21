@@ -1,0 +1,134 @@
+* NAND3B post-layout VDD switching power
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.subckt NAND3B_PEX vdd a b c vss out
+.include Spice_Netlist/nand3b_pex.spice
+.ends NAND3B_PEX
+
+.param SLEWVAL=10p
+.param CLOADVAL=0.5f
+
+VHIGH high 0 DC 1.8
+
+VS011 s011 0 DC 1.8
+VS111 s111 0 DC 1.8
+VS001 s001 0 DC 1.8
+VS010 s010 0 DC 1.8
+
+XS011 s011 0 high high 0 os011 NAND3B_PEX
+XS111 s111 high high high 0 os111 NAND3B_PEX
+XS001 s001 0 0 high 0 os001 NAND3B_PEX
+XS010 s010 0 high 0 0 os010 NAND3B_PEX
+
+BPS011 ps011 0 V=-v(s011)*i(VS011)
+BPS111 ps111 0 V=-v(s111)*i(VS111)
+BPS001 ps001 0 V=-v(s001)*i(VS001)
+BPS010 ps010 0 V=-v(s010)*i(VS010)
+
+VUP up 0 PULSE(0 1.8 2n {SLEWVAL/0.6} {SLEWVAL/0.6} 20n 40n)
+VDOWN down 0 PULSE(1.8 0 2n {SLEWVAL/0.6} {SLEWVAL/0.6} 20n 40n)
+
+VDDAR var 0 DC 1.8
+VDDAF vaf 0 DC 1.8
+VDDBR vbr 0 DC 1.8
+VDDBF vbf 0 DC 1.8
+VDDCR vcr 0 DC 1.8
+VDDCF vcf 0 DC 1.8
+
+XAR var up high high 0 out_ar NAND3B_PEX
+XAF vaf down high high 0 out_af NAND3B_PEX
+XBR vbr 0 down high 0 out_br NAND3B_PEX
+XBF vbf 0 up high 0 out_bf NAND3B_PEX
+XCR vcr 0 high down 0 out_cr NAND3B_PEX
+XCF vcf 0 high up 0 out_cf NAND3B_PEX
+
+CAR out_ar 0 {CLOADVAL}
+CAF out_af 0 {CLOADVAL}
+CBR out_br 0 {CLOADVAL}
+CBF out_bf 0 {CLOADVAL}
+CCR out_cr 0 {CLOADVAL}
+CCF out_cf 0 {CLOADVAL}
+
+BPAR par 0 V=-v(var)*i(VDDAR)
+BPAF paf 0 V=-v(vaf)*i(VDDAF)
+BPBR pbr 0 V=-v(vbr)*i(VDDBR)
+BPBF pbf 0 V=-v(vbf)*i(VDDBF)
+BPCR pcr 0 V=-v(vcr)*i(VDDCR)
+BPCF pcf 0 V=-v(vcf)*i(VDDCF)
+
+.control
+set noaskquit
+
+echo "input,output_transition,slew_ps,load_fF,energy_fJ,power_nW" > Reports/nand3b_dynamic_power.csv
+
+foreach slew 10p 100p 1000p
+    foreach load 0.5f 10f 100f
+        alterparam SLEWVAL = $slew
+        alterparam CLOADVAL = $load
+        reset
+        tran 0.5p 8n
+
+        meas tran p011 avg v(ps011) from=1n to=8n
+        meas tran p111 avg v(ps111) from=1n to=8n
+        meas tran p001 avg v(ps001) from=1n to=8n
+        meas tran p010 avg v(ps010) from=1n to=8n
+
+        meas tran e_ar integ v(par) from=0 to=8n
+        meas tran e_af integ v(paf) from=0 to=8n
+        meas tran e_br integ v(pbr) from=0 to=8n
+        meas tran e_bf integ v(pbf) from=0 to=8n
+        meas tran e_cr integ v(pcr) from=0 to=8n
+        meas tran e_cf integ v(pcf) from=0 to=8n
+
+        meas tran final_ar find v(out_ar) at=8n
+        meas tran final_af find v(out_af) at=8n
+        meas tran final_br find v(out_br) at=8n
+        meas tran final_bf find v(out_bf) at=8n
+        meas tran final_cr find v(out_cr) at=8n
+        meas tran final_cf find v(out_cf) at=8n
+
+        let ramp_s = $slew / 0.6
+        let slew_ps = $slew * 1e12
+        let load_ff = $load * 1e15
+
+        let leak_ar = p011*2n + (p011+p111)*ramp_s/2 + p111*(6n-ramp_s)
+        let leak_af = p111*2n + (p111+p011)*ramp_s/2 + p011*(6n-ramp_s)
+
+        let leak_br = p011*2n + (p011+p001)*ramp_s/2 + p001*(6n-ramp_s)
+        let leak_bf = p001*2n + (p001+p011)*ramp_s/2 + p011*(6n-ramp_s)
+
+        let leak_cr = p011*2n + (p011+p010)*ramp_s/2 + p010*(6n-ramp_s)
+        let leak_cf = p010*2n + (p010+p011)*ramp_s/2 + p011*(6n-ramp_s)
+
+        let ar_fj = (e_ar-leak_ar)*1e15
+        let af_fj = (e_af-leak_af)*1e15
+        let br_fj = (e_br-leak_br)*1e15
+        let bf_fj = (e_bf-leak_bf)*1e15
+        let cr_fj = (e_cr-leak_cr)*1e15
+        let cf_fj = (e_cf-leak_cf)*1e15
+
+        let ar_nw = (e_ar-leak_ar)/8n*1e9
+        let af_nw = (e_af-leak_af)/8n*1e9
+        let br_nw = (e_br-leak_br)/8n*1e9
+        let bf_nw = (e_bf-leak_bf)/8n*1e9
+        let cr_nw = (e_cr-leak_cr)/8n*1e9
+        let cf_nw = (e_cf-leak_cf)/8n*1e9
+
+        echo "A,rise,$&slew_ps,$&load_ff,$&ar_fj,$&ar_nw" >> Reports/nand3b_dynamic_power.csv
+        echo "A,fall,$&slew_ps,$&load_ff,$&af_fj,$&af_nw" >> Reports/nand3b_dynamic_power.csv
+        echo "B,rise,$&slew_ps,$&load_ff,$&br_fj,$&br_nw" >> Reports/nand3b_dynamic_power.csv
+        echo "B,fall,$&slew_ps,$&load_ff,$&bf_fj,$&bf_nw" >> Reports/nand3b_dynamic_power.csv
+        echo "C,rise,$&slew_ps,$&load_ff,$&cr_fj,$&cr_nw" >> Reports/nand3b_dynamic_power.csv
+        echo "C,fall,$&slew_ps,$&load_ff,$&cf_fj,$&cf_nw" >> Reports/nand3b_dynamic_power.csv
+
+        echo "Slew=$slew Load=$load"
+        print ar_nw af_nw br_nw bf_nw cr_nw cf_nw
+        print final_ar final_af final_br final_bf final_cr final_cf
+    end
+end
+
+quit
+.endc
+
+.end
