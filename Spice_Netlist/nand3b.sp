@@ -40,7 +40,7 @@ V_A in  0 PULSE(0 1.8 1n 10p 10p 3n 6n)
 
 * Test setup: pin ordering is (vdd a b c vss out)
 * Setting b=vdd, c=vdd means out tracks input 'a' directly (out = A)
-XNAND3B vdd in vdd vdd 0 out nand3b
+XNAND3B vdd 0 vdd in 0 out nand3b
 XLOAD out vdd 0 LOAD_OUT Inverter_X1
 
 .tran 1p 8n
@@ -49,8 +49,16 @@ XLOAD out vdd 0 LOAD_OUT Inverter_X1
 
 .control
 run
-plot v(in) v(B2_out)
-*plot v(in) v(out)
+set color0=white
+set color1=black
+* plot v(in) v(B2_out)
+meas tran x_intersect1 when v(out)=0.36 RISE=1
+let y_marker1 = 0.36 + 0 * time 
+let x_marker1 = 1.8 * (time >= x_intersect1) 
+meas tran x_intersect2 when v(out)=1.44 RISE=1
+let y_marker2 = 1.44 + 0 * time 
+let x_marker2 = 1.8 * (time >= x_intersect2)
+plot v(in) v(out) y_marker1 y_marker2 x_marker1 x_marker2
 .endc
 
 .end
