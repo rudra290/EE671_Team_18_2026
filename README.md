@@ -27,9 +27,9 @@ Team_num18
 
 ## Project
 
-- [ ] inv: Inverter
-- [ ] dfxtn:	Delay flop, single output Q, negedge clk
-- [ ] nand3b:	3-input NAND, first input inverted
+- [x] inv: Inverter
+- [x] dfxtn:	Delay flop, single output Q, negedge clk
+- [x] nand3b:	3-input NAND, first input inverted
 
 ## Flow of working
 
@@ -52,27 +52,27 @@ Team_num18
 
 - [x] Project Plan and assignment
 - [x] Report Skeleton
-- [ ] Spice Netlist
+- [x] Spice Netlist
   - [x] inv
   - [x] dfxtn
-  - [ ] nand3b
-- [ ] Verilog code
-  - [ ] inv
-  - [ ] dfxtn
-  - [ ] nand3b
-- [ ] Draw the layout
+  - [x] nand3b
+- [x] Verilog code
   - [x] inv
   - [x] dfxtn
-  - [ ] nand3b
-- [ ] Export the LEF
-  - [ ] inv
-  - [ ] dfxtn
-  - [ ] nand3b
-- [ ] Export the LIB
-  - [ ] inv
-  - [ ] dfxtn
-  - [ ] nand3b
-- [ ] Report Writing
+  - [x] nand3b
+- [x] Draw the layout
+  - [x] inv
+  - [x] dfxtn
+  - [x] nand3b
+- [x] Export the LEF
+  - [x] inv
+  - [x] dfxtn
+  - [x] nand3b
+- [x] Export the LIB
+  - [x] inv
+  - [x] dfxtn
+  - [x] nand3b
+- [x] Report Writing
 
 ## FAQs
 
